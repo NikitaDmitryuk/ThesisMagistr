@@ -1,0 +1,89 @@
+\documentclass[%
+candidate, % тип документа
+subf, % подключить и настроить пакет subfig для вложенной нумерации рисунков
+%href, % подключить и настроить пакет hyperref
+%colorlinks=true % цветные гиперссылки
+times % шрифт Times как основной
+%,fixint=false % отключить прямые знаки интегралов
+]{disser}
+
+%\renewcommand{\rmdefault}{ftm}
+\usepackage{tempora}
+%\usepackage{paratype}
+%\usepackage{mathptmx}
+
+\usepackage[
+a4paper, mag=1000,
+left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
+]{geometry}
+
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+%\usepackage{paratype}
+%\defaultfontfeatures{Ligatures={TeX},Renderer=Basic} 
+%\setmainfont[Ligatures={TeX,Historic}]{Times New Roman}
+\usepackage{pdfpages}
+\ifpdf\usepackage{epstopdf}\fi
+
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{multirow}
+\usepackage{afterpage}
+\usepackage[font={normal}]{caption}
+%\usepackage{setspace}
+\usepackage{amsmath} % align
+\usepackage[onehalfspacing]{setspace}% 1,5 интервал
+%\usepackage{biblatex}
+\usepackage{fancyhdr} % пакет для установки колонтитулов
+\pagestyle{fancy} % смена стиля оформления страниц
+\fancyhf{} % очистка текущих значений
+\fancyfoot[C]{\thepage} % установка верхнего колонтитула
+\renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
+
+\captionsetup{format=hang,labelsep=period}
+
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
+
+% Включать подсекции в оглавление
+\setcounter{tocdepth}{2}
+
+\graphicspath{{images/}}
+
+
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
+
+
+\begin{document}
+\includepdf[pages={1-1}]{Chapters/Titul_vkr.pdf}
+% Содержание
+
+\input{Chapters/Introduction_asp.tex}
+\newpage
+\input{Chapters/Chapter_0.tex}
+\newpage
+\input{Chapters/Chapter_1.tex}
+\newpage
+\input{Chapters/Chapter_2.tex}
+\newpage
+\input{Chapters/Chapter_3.tex}
+\newpage
+
+%\bibliographystyle{unsrt}
+\bibliographystyle{biblio/gost2008n}
+\renewcommand\bibname{\normalsize СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+\let\BibEmph=\emph
+%\bibliographystyle{ugost2008}  %% стилевой файл для оформления по ГОСТу
+\bibliography{biblio/biblio}
+
+\end{document}
