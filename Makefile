@@ -8,7 +8,7 @@ diplom:
 	pdflatex -interaction=nonstopmode diplom
 
 clean:
-	rm *.toc *.out *.aux *.blg *.bbl
+	rm *.out *.aux *.blg *.bbl
 
 docker-latex:
 	sudo systemctl start docker
