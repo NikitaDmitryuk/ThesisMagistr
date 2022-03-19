@@ -26,6 +26,7 @@ RUN apt install -y texlive-base \
         texlive-latex-extra \
         texlive-xetex \
         texlive-lang-cyrillic \
+        texlive-lang-greek \
         texlive-fonts-extra \
         texlive-science \
         texlive-latex-recommended \

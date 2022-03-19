@@ -9,14 +9,15 @@ times % шрифт Times как основной
 
 %\renewcommand{\rmdefault}{ftm}
 \usepackage{tempora}
+\usepackage[T2A]{fontenc}
 
 \usepackage[
 a4paper, mag=1000,
 left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 ]{geometry}
 
+\usepackage{graphicx}% Include figure files66
 
-\usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 
@@ -25,6 +26,10 @@ left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 %\setmainfont[Ligatures={TeX,Historic}]{Times New Roman}
 \usepackage{pdfpages}
 \ifpdf\usepackage{epstopdf}\fi
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\usepackage{tabularx}
 
 \usepackage{dcolumn}
 \usepackage{bm}
@@ -36,7 +41,7 @@ left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 \usepackage{cite}
 \usepackage{multirow}
 \usepackage{afterpage}
-\usepackage[font={normal}]{caption}
+%\usepackage[font={normal}]{caption}
 %\usepackage{setspace}
 \usepackage{amsmath} % align
 \usepackage[onehalfspacing]{setspace}% 1,5 интервал
