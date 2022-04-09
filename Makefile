@@ -8,8 +8,12 @@ diplom:
 	pdflatex -interaction=nonstopmode diplom
 
 clean:
-	rm *.out *.aux *.blg *.bbl
+	rm *.out
+	rm *.aux 
+	rm *.blg 
+	rm *.bbl 
+	rm *.toc
 
 docker-latex:
 	sudo systemctl start docker
-	docker run --rm -ti -v ${PWD}:/diplom:Z docker-latex bash -c "make diplom && make clean"
+	docker run --rm -i -v ${PWD}:/diplom:Z docker-latex bash -c "make diplom && make clean"
