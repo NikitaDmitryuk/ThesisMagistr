@@ -22,12 +22,34 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: LaTeX compilation
-  
         uses: dante-ev/latex-action@2021-A
         with:
           # The root LaTeX file to be compiled
-          root_file: diplom.tex
+          root_file: diplom
           # LaTeX engine to be used
-          compiler: latexmk
-          # Extra arguments to be passed to the latex compiler
-          args: -latexoption=-interaction=nonstopmode
+          compiler: pdflatex
+          
+      - name: BibTeX compilation
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: diplom
+          # LaTeX engine to be used
+          compiler: bibtex
+          args: no
+      
+      - name: LaTeX compilation
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: diplom
+          # LaTeX engine to be used
+          compiler: pdflatex
+
+      - name: LaTeX compilation
+        uses: dante-ev/latex-action@2021-A
+        with:
+          # The root LaTeX file to be compiled
+          root_file: diplom
+          # LaTeX engine to be used
+          compiler: pdflatex
