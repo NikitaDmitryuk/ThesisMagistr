@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Create_release
+name: Create_ThesisMagister
 
 # Controls when the workflow will run
 on:
@@ -28,3 +28,9 @@ jobs:
           root_file: diplom
           # LaTeX engine to be used
           compiler: pdflatex
+
+      - name: Cache diplom
+        uses: actions/cache@v3
+        with:
+          path: diplom.pdf
+          key: ${{ runner.os }}-${{ steps.get_version.outputs.out }}

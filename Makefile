@@ -1,7 +1,7 @@
 
 all: docker-latex
 
-diplom:
+diplom: diplom.tex
 	pdflatex -interaction=nonstopmode diplom
 	bibtex diplom
 	pdflatex -interaction=nonstopmode diplom

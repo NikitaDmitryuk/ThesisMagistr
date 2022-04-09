@@ -1,6 +1,9 @@
 # ThesisMagistr
 Выпускная квалификационная работа 
 
+Status of last deployment:
+<br><img src="https://github.com/NikitaDmitryuk/ThesisMagistr/workflows/Create_ThesisMagister/badge.svg?branch-master"><br>
+
 ## Установка в Linux
 
 Запустить скрипт соответствующий вашей операционной системе:
