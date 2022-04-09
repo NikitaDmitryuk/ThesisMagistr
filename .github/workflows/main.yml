@@ -28,28 +28,3 @@ jobs:
           root_file: diplom
           # LaTeX engine to be used
           compiler: pdflatex
-          
-      - name: BibTeX compilation
-        uses: dante-ev/latex-action@2021-A
-        with:
-          # The root LaTeX file to be compiled
-          root_file: diplom
-          # LaTeX engine to be used
-          compiler: bibtex
-          args: no
-      
-      - name: LaTeX compilation
-        uses: dante-ev/latex-action@2021-A
-        with:
-          # The root LaTeX file to be compiled
-          root_file: diplom
-          # LaTeX engine to be used
-          compiler: pdflatex
-
-      - name: LaTeX compilation
-        uses: dante-ev/latex-action@2021-A
-        with:
-          # The root LaTeX file to be compiled
-          root_file: diplom
-          # LaTeX engine to be used
-          compiler: pdflatex
