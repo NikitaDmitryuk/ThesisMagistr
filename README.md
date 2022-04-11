@@ -2,7 +2,8 @@
 Выпускная квалификационная работа 
 
 Status of last deployment:
-![example branch parameter](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
+
+![main](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
 
 ## Установка в Linux
 
