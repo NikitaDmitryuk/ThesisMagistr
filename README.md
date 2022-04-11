@@ -2,7 +2,7 @@
 Выпускная квалификационная работа 
 
 Status of last deployment:
-<br><img src="https://github.com/NikitaDmitryuk/ThesisMagistr/workflows/Create_ThesisMagister/badge.svg?branch-master"><br>
+<br><img src="https://github.com/NikitaDmitryuk/ThesisMagistr/workflows/Create_ThesisMagister/badge.svg?branch-main"><br>
 
 ## Установка в Linux
 
