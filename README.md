@@ -3,7 +3,7 @@
 
 Status of last deployment:
 
-![main](https://github.com/github/docs/actions/workflows/main.yml/badge.svg?branch=main)
+![example workflow](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
 
 ## Установка в Linux
 
