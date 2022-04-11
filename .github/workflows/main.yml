@@ -21,13 +21,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: LaTeX compilation
-        uses: dante-ev/latex-action@2021-A
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          # The root LaTeX file to be compiled
-          root_file: diplom
-          # LaTeX engine to be used
-          compiler: pdflatex
+          root_file: diplom.tex
 
       - name: Cache diplom
         uses: actions/cache@v3
