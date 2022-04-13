@@ -43,7 +43,6 @@ RUN apt install -y --reinstall ttf-mscorefonts-installer && \
     fc-cache -f -v
 
 RUN apt install -y texlive-luatex
-# RUN update-language
 
 
 VOLUME $DIR

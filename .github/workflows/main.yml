@@ -6,32 +6,35 @@ name: Create_ThesisMagister
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    tags:
+      - 'v*'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Compile LaTeX document
+      - name: Compile diplom.tex
         uses: xu-cheng/latex-action@v2
         with:
           root_file: diplom.tex
 
-      - name: Cache diplom
-        uses: actions/cache@v3
+      - name: Compile presentation.tex
+        uses: xu-cheng/latex-action@v2
         with:
-          path: diplom.pdf
-          key: ${{ runner.os }}-${{ steps.get_version.outputs.out }}
+          root_file: presentation.tex
+
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: diplom.pdf
+          files: |
+            diplom.pdf
+            presentation.pdf
