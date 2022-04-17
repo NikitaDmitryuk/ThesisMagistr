@@ -45,7 +45,7 @@
 \vspace{0.2cm}
 \tiny \textbf{НА ТЕМУ:}\\
 \vspace{0.1cm}
-\tiny \textbf{<<РОЛЬ ДАЛЬНОДЕЙСТВИЯ ПРИТЯЖЕНИЯ \\ В НУКЛЕАЦИИ И В КОЛЛЕКТИВНЫХ ВОЗБУЖДЕНИЯХ>>}\\
+\tiny \textbf{<<РОЛЬ ДАЛЬНОДЕЙСТВИЯ ПРИТЯЖЕНИЯ \\ В КОЛЛЕКТИВНОЙ ДИНАМИКЕ>>}\\
 \end{center}
 
 \vspace{0.3cm}
@@ -96,14 +96,20 @@
 
 \textbf{Актуальность данной работы заключается в следующем:}
 \begin{itemize}
-    \item Нет точных данных о том, как потенциал взаимодействия частиц влияет на транспортные свойства вещества, в том числе температурные зависимости диффузии и подвижности.
-
-    \item Неизвестно, существует ли корреляция между диффузией и спектрами возбуждений в жидкой фазе веществ.
-
-    \item Неизвестно, каким образом дальнодействие притяжения влиет на скорость процесса кристаллообразования.
+    \item Показано влияние дальнодействия потенциала взаимодействия частиц на транспортные свойства вещества, в том числе температурные зависимости диффузии и подвижности.
+    \item Показано, что существует корреляция между диффузией и спектрами возбуждений в жидкой фазе веществ.
+    \item Разработан новый метод распознавания фаз, который позволяет изучать влияние дальнодействия потенциала на скорость процесса кристаллообразования.
 
 \end{itemize}
 
+\textbf{Практическая значимость:}
+
+\begin{itemize}
+ \item Численно расчитана диффузия и спектры на жидкостной бинодали веществ
+ \item Новый метод распознавания фаз позволяет ускорить процесс расчета фазовых диаграмм, сохраняя точность и универсальность к размерности системы
+\end{itemize}
+
+
 }
 \end{frame}
 
@@ -112,37 +118,18 @@
 
 
 
-
-
-
-
-\begin{frame}{Цель работы}
+\begin{frame}{Цель и задачи работы}
 \footnotesize{
-\textbf{Цель работы} -- установить связь дальнодействия потенциала и спектров возбуждений с транспортными свойствами жидкостей, а также его влияние на скорость нуклеации.
 
-}
-\end{frame}
+\textbf{Цель работы} -- установить связь дальнодействия потенциала и спектров возбуждений с транспортными свойствами жидкостей, а также влияние на скорость нуклеации.
 
-
-
-
-
-
-
-
-
-
-\begin{frame}{Задачи работы}
-\footnotesize{
+\vspace{0.5cm}
 
 \textbf{Задачами работы являются:}
 \begin{itemize}
-\item Расчет фазовых диаграмм обобщенного потенциала Леннарда-Джонса.
 \item Расчет и анализ транспортных свойств и коллективных возбуждений на жидкостных бинодалях.
-\item Адаптация метода кластеризации данных DBSCAN для МД моделирований.
-\item Расчет фазовых диаграмм для 2D и 3D систем частиц, взаимодействующих посредством обобщенного нормированного потенциала Леннарда--Джонса с различными степенями притяжения.
-\item Сравнение нового метода с другими алгоритмами распознавания фаз и построения фазовых диаграмм.
-\item Проведение тестов на устойчивость метода к изменению средней плотности системы и параметров моделирования.
+\item Адаптация метода кластеризации данных DBSCAN для изучения молекулярных систем и его сравнение с другими методами.
+\item Расчет фазовых диаграмм для 2D и 3D систем частиц, взаимодействующих посредством обобщенного потенциала Леннарда--Джонса с различными степенями притяжения.
 \item Применение нового метода распознавания фаз для изучения скорости нуклеации в переохлажденных системах Леннарда-Джонса с различным дальнодействием притяжения.
 \end{itemize}
 
@@ -154,18 +141,20 @@
 
 
 
-\begin{frame}
-\begin{center}
-\vspace{5mm}
-\textbf{<<ВЛИЯНИЕ ДАЛЬНОДЕЙСТВИЯ ПРИТЯЖЕНИЯ НА ТРАНСПОРТНЫЕ СВОЙСТВА ВЕЩЕСТВ И КОЛЛЕКТИВНЫЕ ВОЗБУЖДЕНИЯ>>}
-\end{center}
+
+\begin{frame}{Положения, выносимые на защиту}
+\footnotesize{
+
+\begin{enumerate}
+ \item Температурная зависимость диффузии имеет линейную зависимость в широком диапазоне температур на биножали жидкость-газ, отклонение от которой коррелирует с изменением характера спектра возбуждений
+ \item Отношение температур критической к тройной точке убывает с уменьшением дальнодействия потенциала взаимодействия
+ \item Разработанный метод распознавания фаз на основе алгоритма кластеризации позволяет сократить время расчета фазовых диаграмм с сохранением точности на уровне других методов, и обладает универсальностью как к размерности системы так и к форме кластеров
+\end{enumerate}
+
+
+
+}
 \end{frame}
-
-
-
-
-
-
 
 
 
@@ -357,62 +346,6 @@ F. Biscay, et al., The Journal of Physical Chemistry B 112, 13885 (2008).}
 \begin{frame}{Вычисление диффузии и спектров в жидкости}
 \footnotesize{
 \begin{columns}
-\begin{column}{0.55\linewidth}
-\begin{center}
-
-\begin{figure}
-\caption{\footnotesize Зависимость среднеквадратичного смещения частиц от времени.}
-\includegraphics[width=\textwidth]{Fig_support_1.pdf}
-\end{figure}
-  \end{center}
-
-\end{column}
-
-\begin{column}{0.5\linewidth}
-
-Cреднеквадратичное смещение частиц:
-\begin{align}
-    \sigma^2(t) &= \sum\limits_{\alpha = 1}^{N} (r_{\alpha}(t) - r_{\alpha}(0))^2 / N \\
-    \sigma^2(t) &= 6\cdot D\cdot t
-    \label{eqRMS}
-\end{align}
-
-где $D$ - коэффициент диффузии;
-
-$\sigma$ - среднеквадратичное смещение;
-
-$t$ - время;
-
-$N$ - количество частиц.
-
-\vspace{0.5cm}
-
-Подвижность частиц $\mu$ связана с диффузией:
-\begin{equation}
-    \mu = \frac{D}{T}
-    \label{eqMobility}
-\end{equation}
-
-\end{column}
-\end{columns}
-
-
-}
-
-\end{frame}
-
-
-
-
-
-
-
-
-
-
-\begin{frame}{Вычисление диффузии и спектров в жидкости}
-\footnotesize{
-\begin{columns}
 \begin{column}{0.5\linewidth}
 \begin{center}
     \includegraphics[width=\textwidth]{CFS-Figure1.png}
@@ -421,6 +354,22 @@ $N$ - количество частиц.
 \end{column}
 
 \begin{column}{0.5\linewidth}
+
+
+Cреднеквадратичное смещение частиц:
+\begin{align}
+    \sigma^2(t) &= \sum\limits_{\alpha = 1}^{N} (r_{\alpha}(t) - r_{\alpha}(0))^2 / N \\
+    \sigma^2(t) &= 6\cdot D\cdot t
+    \label{eqRMS}
+\end{align}
+
+
+Подвижность частиц $\mu$ связана с диффузией:
+\begin{equation}
+    \mu = \frac{D}{T}
+    \label{eqMobility}
+\end{equation}
+
 
 Спектр потока скорости:
 \begin{align}
@@ -506,6 +455,203 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
 
 
+\begin{frame}{Алгоритмы кластеризации}
+\footnotesize{
+
+\begin{figure}[!t]
+\begin{center}
+\includegraphics[width=0.85\textwidth]{Intersect.png}
+\caption{Алгоритм DBSCAN применяется для кластеризации данных в которых присутствует большое количество шумов и кластеры имеют одинаковую плотность.}
+\label{sravnenie}
+\end{center}
+\end{figure}
+
+}
+
+\end{frame}
+
+
+
+\begin{frame}{Принцип работы DBSCAN}
+\footnotesize{
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.9\linewidth]{kepsilon.pdf}
+    \caption{Принцип работы алгоритма кластеризации DBSCAN для случая $k = 3$.}
+    \label{kepsilon}
+\end{figure}
+}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}{Пример распознавания частиц в 2D системе LJ12-6.}
+\footnotesize{
+
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{PRIMe-FIgure104.pdf}
+    \caption{(a) классификация частиц на конденсат и газ. \\
+    (b) выделение частиц поверхности, по условию принадлежности к конденсату и не к основным частицам. \\
+    (с) пример выделения регулярной поверхности, охватывающей все частицы кластера.}
+    \label{DBSCAN-Illustr}
+\end{figure}
+
+}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Распознавание фаз методом DBSCAN в 3D системе LJ12-6}
+\footnotesize{
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{PRIMe-Figure103.png}
+    \caption{(a) кластер произвольной формы при температуре ниже тройной точки. \\
+    (b) система в состоянии жидкость + газ. \\
+    (с) система вблизи критической точки.}
+    \label{D3_free_conf}
+\end{figure}
+}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}{Тесты на устойчивость метода}
+\footnotesize{
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{Figure10.pdf}
+    \caption{\textbf{(a)} Сравнение различных методов построения фазовых диаграмм. Красным отмечен самый точный метод - термодинамическое интегрирование.\\
+             \textbf{(b)} Тест на влияние средней плотности на фазовую диаграмму системы LJ12-6 в трехмерии.\\
+             \textbf{(c)} Тест на влияние начального параметра $k$ на фазовую диаграмму системы LJ12-6 в трехмерии.}
+    \label{tests}
+\end{figure}
+}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Скорость нуклеации в переохлажденных системах}
+\footnotesize{
+
+
+\begin{figure}[!t]
+	 \centering
+	 \includegraphics[width=\linewidth]{otchet.pdf}
+	 \label{otchet}
+\end{figure}
+
+Процесс зарождения и роста кластеров в переохлажденной системе частиц.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{nucleation.pdf}
+    \label{nucleation}
+\end{figure}
+
+
+}
+
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}{Выводы работы}
+\footnotesize{
+\begin{itemize}
+
+    \item Установлено что подвижность имеет линейную температурную зависимость в широком диапазоне на бинодали жидкость-газ.
+
+    \item При увеличении дальнодействия потенциала увеличивается отношение температур критической к тройной точке. Кроме того, при этом уменьшается наклон температурной зависимости подвижности.
+
+    \item Отклонение подвижности от линейной зависимости при высоких температурах коррелирует с переходом спектров возбуждений от осцилирующего к монотонному виду.
+
+    \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN. Алгоритм показывает высокую точность распознавания фаз, и открывает новые области для изучения, например влияние дальнодействия потенциала на скорость нуклеации в переохлажденых системах.
+
+
+\end{itemize}
+
+
+}
+\end{frame}
+
+
+
+
+
+
+
+
+
+\begin{frame}{Апробация}
+\footnotesize{
+
+\textbf{Публикации:}
+
+\begin{itemize}
+    \item Kryuchkov, N. P., Dmitryuk, N. A., Li, W., Ovcharov, P. V., Han, Y., Sapelkin, A. V., and Yurchenko, S. O. (2021). Mean-field model of melting in superheated crystals based on a single experimentally measurable order parameter. Scientific reports, 11(1), 1-15.
+    \item Yakovlev, E. V., Kryuchkov, N. P., Korsakova, S. A., Dmitryuk, N. A., Ovcharov, P. V., Andronic, M. M., ... and Yurchenko, S. O. (2022). 2D colloids in rotating electric fields: A laboratory of strong tunable three-body interactions. Journal of Colloid and Interface Science, 608, 564-574.
+    \item Tsiok, E. N., Fomin, Y. D., Gaiduk, E. A., Tareyeva, E. E., Ryzhov, V. N., Libet, P. A., ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. The Journal of Chemical Physics, 156(11), 114703.
+\end{itemize}
+
+
+\textbf {Результаты работ представлены на следующих конференциях:}
+
+\begin{itemize}
+    \item XX Школа-конференция молодых ученых <<Проблемы физики твердого тела и высоких давлений>>, Сочи, 16-26 сентября 2021г.
+    \item Современные тенденции развития функциональных материалов, Сочи, 11-14 ноября 2021г.
+    \item Dynamic phenomena workshop 2022.
+\end{itemize}
+
+}
+\end{frame}
+
+
+
+
+
+
+
+
+\begin{frame}
+    \centering \Huge \textcolor{blue}{Ваши вопросы!}
+\end{frame}
+
+
+
+
+
+
+
+
 
 \begin{frame}{Результаты совместного анализа}
 \footnotesize{
@@ -563,341 +709,22 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
 
 
-\begin{frame}{Выводы главы}
-\footnotesize{
-\begin{itemize}
-
-    \item Обнаружено, что подвижность имеет линейную зависимость в широком диапазоне температур на конденсированной бинодали.
-
-    \item Установлено, что при увеличении дальнодействия потенциала увеличивается отношение температур критической к тройной точки. Кроме того, при этом уменьшается наклон температурной зависимости подвижности.
-
-    \item Продемонстрировано, что отклонение подвижности от линейной зависимости при высоких температурах коррелирует с переходом спектров возбуждений от осцилирующего к монотонному виду.
-
-    \item Исследование подвижности на бинодали жидкость-газ для систем с различным дальнодействием притяжением поддержано грантом Российского научного фонда No 20-12-00356. Материалы данной работы готовятся к публикации <<Influence of Long-Range Potential Action on Mobility on a Liquid Binodal / Nikita A. Dmitryuk, Lucia A. Mistryukova, Nikita P. Kryuchkov, Sergey A. Khrapak, Stanislav O. Yurchenko. // \textit{The Journal of Chemical Physics}>>.
-\end{itemize}
-
-}
-\end{frame}
-
-
-
-
-
-
-
-
-
-\begin{frame}
-\begin{center}
-\vspace{5mm}
-\textbf{<<ВЛИЯНИЕ ДАЛЬНОДЕЙСТВИЯ ПРИТЯЖЕНИЯ НА ФАЗОВЫЕ ДИАГРАММЫ И СКОРОСТЬ НУКЛЕАЦИИ>>}
-\end{center}
-\end{frame}
-
-
-
-
-
-
-
-
-\begin{frame}{Алгоритмы кластеризации}
+\begin{frame}{Зависимость положения тройных и критических точек}
 \footnotesize{
 
-\begin{figure}[!t]
-\begin{center}
-\includegraphics[width=0.85\textwidth]{Intersect.png}
-\caption{Алгоритм DBSCAN применяется для кластеризации данных в которых присутствует большое количество шумов и кластеры имеют одинаковую плотность.}
-\label{sravnenie}
-\end{center}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{NMP-Figure4}
+\caption{\footnotesize \textbf{Зависимость тройных и критических точек от дальнодействия притяжения в системе}}
+\label{Figure4}
 \end{figure}
 
 }
 
+\tiny{Tsiok, E. N., Dmitryuk, N.A, ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. // \textit{The Journal of Chemical Physics}}
 \end{frame}
 
 
 
-\begin{frame}{Принцип работы DBSCAN}
-\footnotesize{
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.9\linewidth]{kepsilon.pdf}
-    \caption{Принцип работы алгоритма кластеризации DBSCAN для случая $k = 3$.}
-    \label{kepsilon}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-\begin{frame}{Оптимальный выбор параметра $\varepsilon$}
-\footnotesize{
-
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Figure0.pdf}
-    \caption{Выбор оптимального параметра $\varepsilon$. Красным цветом указаны точки для различных значений параметра $k$, наиболее удаленные от линии, соединяющей начало и конец кривой расстояний.}
-    \label{epsilon_k}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{Пример распознавания частиц в 2D системе LJ12-6.}
-\footnotesize{
-
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.8\linewidth]{PRIMe-FIgure104.pdf}
-    \caption{(a) классификация частиц на конденсат и газ. \\
-    (b) выделение частиц поверхности, по условию принадлежности к конденсату и не к основным частицам. \\
-    (с) пример выделения регулярной поверхности, охватывающей все частицы кластера.}
-    \label{DBSCAN-Illustr}
-\end{figure}
-
-}
-
-\end{frame}
-
-
-
-
-\begin{frame}{Распознавание фаз методом DBSCAN в 3D системе LJ12-6}
-\footnotesize{
-
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.8\linewidth]{PRIMe-Figure101.png}
-    \label{D3_flat_layer}
-\end{figure}
-
-
-}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{Распознавание фаз методом DBSCAN в 3D системе LJ12-6}
-\footnotesize{
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{PRIMe-Figure103.png}
-    \caption{(a) кластер произвольной формы при температуре ниже тройной точки. \\
-    (b) система в состоянии жидкость + газ. \\
-    (с) система вблизи критической точки.}
-    \label{D3_free_conf}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-
-
-
-\begin{frame}{Тесты на устойчивость метода}
-\footnotesize{
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{Figure10.pdf}
-    \caption{\textbf{(a)} Сравнение различных методов построения фазовых диаграмм. Красным отмечен самый точный метод - термодинамическое интегрирование.\\
-             \textbf{(b)} Тест на влияние средней плотности на фазовую диаграмму системы LJ12-6 в трехмерии.\\
-             \textbf{(c)} Тест на влияние начального параметра $k$ на фазовую диаграмму системы LJ12-6 в трехмерии.}
-    \label{tests}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-
-\begin{frame}{Скорость нуклеации в переохлажденных системах}
-\footnotesize{
-
-\begin{equation}
-U_{nm}(r)=\frac{\varepsilon}{n-m}\left(\frac{m}{r^n}-\frac{n}{r^m}\right) \label{NMP-eq1}
-\end{equation}
-
-\begin{figure}[!t]
-	 \centering
-	 \includegraphics[width=\linewidth]{otchet.pdf}
-	 \caption{Процесс зарождения и роста кластеров в переохлажденной системе частиц взаимодействующих посредством потенциала Леннарда-Джонса.}
-	 \label{otchet}
-\end{figure}
-
-}
-
-\end{frame}
-
-
-
-
-
-\begin{frame}{Скорость нуклеации в переохлажденных системах}
-\footnotesize{
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.7\linewidth]{countCluster.pdf}
-    \caption{Зависимость количества кластеров от времени.}
-    \label{countCluster}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-
-\begin{frame}{Скорость нуклеации в переохлажденных системах}
-\footnotesize{
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.7\linewidth]{countParticles.pdf}
-    \caption{Зависимость доли частиц, находящихся в конденсированном состоянии от времени для различных потенциалов.}
-    \label{countParticles}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-
-
-\begin{frame}{Скорость нуклеации в переохлажденных системах}
-\footnotesize{
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=0.7\linewidth]{meanParticles.pdf}
-    \caption{Зависимость среднего размера кластера от времени для систем с различным дальнодействием потенциала.}
-    \label{meanParticles}
-\end{figure}
-}
-
-\end{frame}
-
-
-
-
-
-
-
-
-
-\begin{frame}{Выводы главы}
-\footnotesize{
-\begin{itemize}
-
-    \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN.
-
-    \item Проведены тесты на устойчивость нового метода классификации и построения фазовых диаграмм к входным параметрам алгоритма. Метод показывает лучшую точность и больший диапазон применения чем другие методы.
-
-    \item Установлено, что в переохлажденных системах дальнодействие потенциала взаимодействия оказывает большое влияние на скорость роста кристалла в начале нуклеации, но имеет слабое влияние на последующую эволюцию системы.
-
-\end{itemize}
-
-
-}
-\end{frame}
-
-
-
-
-
-
-
-
-
-\begin{frame}{Выводы работы}
-\footnotesize{
-\begin{itemize}
-
-    \item Установлено влияние дальнодействия притяжения на транспортные свойства веществ, а также их связь со спектрами возбуждений на бинодали житкость-газ. Изучено, каким образом дальнодействие потенциала влияет на положение тройных и критических точек.
-
-    \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN. Проведены его тексты на устойчивоть к входным параметрам в 2D и 3D системах. Алгоритм показывает высокую точность и надежность распознавания фаз.
-
-    \item С помощью нового метода распознавания фаз был изучен процесс кристаллообразования в переохлажденнх системах и установлено влияние дальнодействия притяжения на скорость нуклеации.
-
-\end{itemize}
-
-
-}
-\end{frame}
-
-
-
-
-
-
-
-
-
-\begin{frame}{Публикации}
-\footnotesize{
-
-За период магистратуры были опубликованы следующие работы:
-
-\begin{itemize}
-    \item Kryuchkov, N. P., Dmitryuk, N. A., Li, W., Ovcharov, P. V., Han, Y., Sapelkin, A. V., and Yurchenko, S. O. (2021). Mean-field model of melting in superheated crystals based on a single experimentally measurable order parameter. Scientific reports, 11(1), 1-15.
-    \item Yakovlev, E. V., Kryuchkov, N. P., Korsakova, S. A., Dmitryuk, N. A., Ovcharov, P. V., Andronic, M. M., ... and Yurchenko, S. O. (2022). 2D colloids in rotating electric fields: A laboratory of strong tunable three-body interactions. Journal of Colloid and Interface Science, 608, 564-574.
-    \item Tsiok, E. N., Fomin, Y. D., Gaiduk, E. A., Tareyeva, E. E., Ryzhov, V. N., Libet, P. A., ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. The Journal of Chemical Physics, 156(11), 114703.
-\end{itemize}
-
-
-}
-\end{frame}
-
-
-
-
-
-
-
-\begin{frame}{Конференции}
-\footnotesize{
-
-
-Результаты работ представлены на следующих конференциях:
-
-\begin{itemize}
-    \item XX Школа-конференция молодых ученых <<Проблемы физики твердого тела и высоких давлений>>, Сочи, 16-26 сентября 2021г.
-    \item Современные тенденции развития функциональных материалов, Сочи, 11-14 ноября 2021г.
-    \item Dynamic phenomena workshop 2022.
-\end{itemize}
-
-}
-\end{frame}
-
-
-
-
-
-\begin{frame}
-    \centering \Huge \textcolor{blue}{Ваши вопросы!}
-\end{frame}
 
 \end{document}
