@@ -42,7 +42,8 @@ RUN apt install -y --reinstall ttf-mscorefonts-installer && \
     rm -f PTSansOFL.zip PTMonoOFL.zip && \
     fc-cache -f -v
 
-RUN apt install -y texlive-luatex
+RUN wget https://people.debian.org/~sgolovan/debian/pool/main/tex/tex-pscyr/tex-pscyr_0.4d~beta9-1_all.deb
+RUN dpkg -i tex-pscyr_0.4d~beta9-1_all.deb
 
 
 VOLUME $DIR
