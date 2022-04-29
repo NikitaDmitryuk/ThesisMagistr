@@ -5,8 +5,7 @@ pipeline {
     stages {
         stage('BuildThesis') {
             steps {
-                sh 'make diplom'
-                sh 'make presentation'
+                sh 'make release'
             }
         }
     }
