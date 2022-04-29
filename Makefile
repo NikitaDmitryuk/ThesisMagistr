@@ -20,6 +20,9 @@ clean:
 	rm *.nav
 	rm *.snm
 
+release: diplom presentation
+	bash ./scripts/find_rm_files.sh
+
 docker-latex:
 	sudo systemctl start docker
 	docker run --rm -i -v ${PWD}:/diplom:Z docker-latex bash -c "make diplom && make presentation && make clean"
