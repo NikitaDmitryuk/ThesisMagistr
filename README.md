@@ -3,7 +3,7 @@
 
 Status of last deployment:
 
-![example workflow](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
+![CreateThesis](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
 
 ## Использование как шаблон
 
