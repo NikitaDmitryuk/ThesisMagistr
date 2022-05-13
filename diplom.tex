@@ -1,14 +1,11 @@
 \documentclass[%
 candidate, % тип документа
 subf, % подключить и настроить пакет subfig для вложенной нумерации рисунков
-%href, % подключить и настроить пакет hyperref
-%colorlinks=true % цветные гиперссылки
 times % шрифт Times как основной
-%,fixint=false % отключить прямые знаки интегралов
 ]{disser}
 
 \renewcommand{\rmdefault}{ftm}
-%\usepackage{tempora}
+
 \usepackage[T2A]{fontenc}
 
 \usepackage[
@@ -20,18 +17,12 @@ left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
-
-%\usepackage{paratype}
-%\defaultfontfeatures{Ligatures={TeX},Renderer=Basic} 
-%\setmainfont[Ligatures={TeX,Historic}]{Times New Roman}
 \usepackage{pdfpages}
 \ifpdf\usepackage{epstopdf}\fi
 \usepackage{array}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
 \usepackage{tabularx}
-%\usepackage{caption}
-
 \usepackage{dcolumn}
 \usepackage{bm}
 \usepackage{hyperref}
@@ -43,10 +34,8 @@ left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 \usepackage{multirow}
 \usepackage{afterpage}
 \usepackage[font={normal}]{caption}
-%\usepackage{setspace}
 \usepackage{amsmath} % align
 \usepackage[onehalfspacing]{setspace}% 1,5 интервал
-%\usepackage{biblatex}
 \usepackage{fancyhdr} % пакет для установки колонтитулов
 \pagestyle{fancy} % смена стиля оформления страниц
 \fancyhf{} % очистка текущих значений
@@ -84,11 +73,9 @@ left=3cm, right=1cm, top=2cm, bottom=2cm, headsep=0.7cm, footskip=1cm
 \input{chapters/conclusion.tex}
 \newpage
 
-%\bibliographystyle{unsrt}
 \bibliographystyle{biblio/gost2008n}
 \renewcommand\bibname{\normalsize СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
 \let\BibEmph=\emph
-%\bibliographystyle{ugost2008}  %% стилевой файл для оформления по ГОСТу
 \bibliography{biblio/biblio}
 
 \end{document}
