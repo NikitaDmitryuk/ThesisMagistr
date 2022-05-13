@@ -6,7 +6,7 @@ pipeline {
         stage('BuildThesis') {
             steps {
                 sh 'docker pull docker.io/2109199812/docker-latex:latest'
-                sh 'docker run --rm -i -v ${PWD}:/diplom:Z docker-latex bash -c "make diplom"'
+                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
                 sh 'make presentation'
                 sh 'make clean'
                 sh 'mkdir -p Thesis'
