@@ -8,7 +8,7 @@ pipeline {
                 sh 'docker pull docker.io/2109199812/docker-latex'
                 sh 'docker pull docker.io/texlive/texlive'
                 sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
-                sh 'docker run --rm -i -v ${PWD}:/tmp:Z texlive/texlive bash -c "pdflatex -interaction=nonstopmode presentation && pdflatex -interaction=nonstopmode presentation"'
+                sh 'docker run --rm -i -v ${PWD}:/tmp:Z texlive/texlive bash -c "pdflatex -interaction=nonstopmode presentation.tex && pdflatex -interaction=nonstopmode presentation.tex"'
                 sh 'make clean'
                 sh 'mkdir -p Thesis'
                 sh 'mv diplom.pdf ./Thesis/diplom.pdf'
