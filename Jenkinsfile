@@ -5,9 +5,10 @@ pipeline {
     stages {
         stage('BuildThesis') {
             steps {
-                sh 'docker pull docker.io/2109199812/docker-latex:latest'
+                sh 'docker pull docker.io/2109199812/docker-latex'
+                sh 'docker pull docker.io/texlive/texlive'
                 sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
-                sh 'make presentation'
+                sh 'docker run --rm -i -v ${PWD}:/tmp:Z texlive/texlive bash -c "make presentation"'
                 sh 'make clean'
                 sh 'mkdir -p Thesis'
                 sh 'mv diplom.pdf ./Thesis/diplom.pdf'
