@@ -14,14 +14,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Compile diplom.tex
+      - name: Compile Thesis
         shell: bash
-        run: make diplom
-
-      - name: Compile presentation.tex
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: presentation.tex
+        run: make release
 
       - name: Release
         uses: softprops/action-gh-release@v1

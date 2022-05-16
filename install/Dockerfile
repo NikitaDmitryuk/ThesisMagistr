@@ -15,22 +15,10 @@ RUN apt update && \
         apt-transport-https \
         unzip
 
-# RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-# RUN tar xvzf $(ls install-tl-*.tar.gz)
-# RUN cd $(ls -d install-tl-*/) && echo I | ./install-tl
+RUN apt install -y texlive-full
 
 RUN apt install -y biber \
 	 latexmk
-
-RUN apt install -y texlive-base \
-        texlive-latex-extra \
-        texlive-xetex \
-        texlive-lang-cyrillic \
-        texlive-lang-greek \
-        texlive-fonts-extra \
-        texlive-science \
-        texlive-latex-recommended \
-	texlive-bibtex-extra
 
 # Times New Roman and other fonts
 RUN apt install -y fontconfig
@@ -44,7 +32,6 @@ RUN apt install -y --reinstall ttf-mscorefonts-installer && \
 
 RUN wget https://people.debian.org/~sgolovan/debian/pool/main/tex/tex-pscyr/tex-pscyr_0.4d~beta9-1_all.deb
 RUN dpkg -i tex-pscyr_0.4d~beta9-1_all.deb
-
 
 VOLUME $DIR
 WORKDIR $DIR

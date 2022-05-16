@@ -24,4 +24,4 @@ release: diplom presentation clean
 
 docker-latex:
 	sudo systemctl start docker
-	docker run --rm -i -v ${PWD}:/diplom:Z docker-latex bash -c "make diplom && make presentation && make clean"
+	docker run --rm -i -v ${PWD}:/diplom:Z docker-latex bash -c "make release"
