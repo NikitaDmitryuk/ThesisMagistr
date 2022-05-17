@@ -22,13 +22,24 @@ pipeline {
             }
         }
 
-        stage('Deploy thesis'){
+        stage('Archive thesis'){
             steps{
                 sh 'mkdir -p Thesis'
                 sh 'mv diplom.pdf ./Thesis/diplom.pdf'
                 sh 'mv presentation.pdf ./Thesis/presentation.pdf'
+                sh 'rm Thesis.zip'
                 script{ zip zipFile: 'Thesis.zip', archive: false, dir: 'Thesis' }
                 archiveArtifacts artifacts: 'Thesis.zip', fingerprint: true
+                sh 'mv Thesis.zip ./Thesis/Thesis.zip'
+            }
+        }
+
+        stage('Send email'){
+            steps{
+                emailext attachmentsPattern: 'Thesis.zip',
+                    body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
+                    subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
+                    to: 'dmitryuk.nikita@gmail.com'
             }
         }
     }
