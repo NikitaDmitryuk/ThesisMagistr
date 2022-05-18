@@ -8,7 +8,7 @@ pipeline {
             agent {
                 docker {
                     image '2109199812/docker-latex'
-                    args '-v ${PWD}:/diplom'
+                    args '-v ${WORKSPACE}:/diplom'
                 }
             }
             steps{
@@ -20,7 +20,7 @@ pipeline {
             agent {
                 docker {
                     image '2109199812/docker-latex'
-                    args '-v ${PWD}:/diplom'
+                    args '-v ${WORKSPACE}:/diplom'
                 }
             }
             steps{
