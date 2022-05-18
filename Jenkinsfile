@@ -3,7 +3,6 @@ pipeline {
     agent {
         docker {
             image '2109199812/docker-latex'
-            label 'latest'
         }
     }
 
