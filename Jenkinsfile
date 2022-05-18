@@ -1,36 +1,28 @@
- 
 pipeline {
     agent any
 
     stages {
 
-        stage('Build diplom'){
-            agent {
-                docker {
-                    image '2109199812/docker-latex'
-                    args '-v ${WORKSPACE}:/diplom'
-                }
-            }
+        stage('Download container') {
             steps{
-                sh 'make diplom'
+                sh 'docker pull docker.io/2109199812/docker-latex'
+            }
+        }
+
+        stage('Build diplom'){
+            steps{
+                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
             }
         }
 
         stage('Build presentation'){
-            agent {
-                docker {
-                    image '2109199812/docker-latex'
-                    args '-v ${WORKSPACE}:/diplom'
-                }
-            }
             steps{
-                sh 'make presentation'
+                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make presentation"'
             }
         }
 
         stage('Archive thesis'){
             steps{
-                sh 'ls'
                 sh 'mkdir -p Thesis'
                 sh 'mv diplom.pdf ./Thesis/diplom.pdf'
                 sh 'mv presentation.pdf ./Thesis/presentation.pdf'
