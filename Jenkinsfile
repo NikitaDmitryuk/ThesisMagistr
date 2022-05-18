@@ -1,8 +1,10 @@
  
 pipeline {
     agent {
-        image '2109199812/docker-latex'
-        label 'latest'
+        docker {
+            image '2109199812/docker-latex'
+            label 'latest'
+        }
     }
 
     stages {
