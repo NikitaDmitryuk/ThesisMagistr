@@ -1,20 +1,28 @@
  
 pipeline {
-    agent {
-        docker {
-            image '2109199812/docker-latex'
-        }
-    }
+    agent any
 
     stages {
 
         stage('Build diplom'){
+            agent {
+                docker {
+                    image '2109199812/docker-latex'
+                    args '--rm -i -v ${PWD}:/diplom:Z'
+                }
+            }
             steps{
                 sh 'make diplom'
             }
         }
 
         stage('Build presentation'){
+            agent {
+                docker {
+                    image '2109199812/docker-latex'
+                    args '--rm -i -v ${PWD}:/diplom:Z'
+                }
+            }
             steps{
                 sh 'make presentation'
             }
