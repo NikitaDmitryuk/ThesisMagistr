@@ -13,6 +13,7 @@ pipeline {
             }
             steps{
                 sh 'make diplom'
+                sh 'ls'
             }
         }
 
@@ -25,11 +26,13 @@ pipeline {
             }
             steps{
                 sh 'make presentation'
+                sh 'ls'
             }
         }
 
         stage('Archive thesis'){
             steps{
+                sh 'ls'
                 sh 'mkdir -p Thesis'
                 sh 'mv diplom.pdf ./Thesis/diplom.pdf'
                 sh 'mv presentation.pdf ./Thesis/presentation.pdf'
