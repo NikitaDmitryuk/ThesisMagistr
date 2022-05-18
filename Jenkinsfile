@@ -8,11 +8,11 @@ pipeline {
             agent {
                 docker {
                     image '2109199812/docker-latex'
+                    args '-v ${PWD}:/diplom'
                 }
             }
             steps{
                 sh 'make diplom'
-                sh "cp diplom.pdf ${WORKSPACE}"
             }
         }
 
@@ -20,11 +20,11 @@ pipeline {
             agent {
                 docker {
                     image '2109199812/docker-latex'
+                    args '-v ${PWD}:/diplom'
                 }
             }
             steps{
                 sh 'make presentation'
-                sh "cp presentation.pdf ${WORKSPACE}"
             }
         }
 
