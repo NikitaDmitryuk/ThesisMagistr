@@ -1,24 +1,21 @@
  
 pipeline {
-    agent any
+    agent {
+        image '2109199812/docker-latex'
+        label 'latest'
+    }
 
     stages {
 
-        stage('Download container') {
-            steps{
-                sh 'docker pull docker.io/2109199812/docker-latex'
-            }
-        }
-
         stage('Build diplom'){
             steps{
-                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
+                sh 'make diplom'
             }
         }
 
         stage('Build presentation'){
             steps{
-                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make presentation"'
+                sh 'make presentation'
             }
         }
 
