@@ -12,7 +12,7 @@ pipeline {
             }
             steps{
                 sh 'make diplom'
-                sh "cp /tmp/diplom.pdf ${WORKSPACE}"
+                sh "cp diplom.pdf ${WORKSPACE}"
             }
         }
 
@@ -24,7 +24,7 @@ pipeline {
             }
             steps{
                 sh 'make presentation'
-                sh "cp /tmp/presentation.pdf ${WORKSPACE}"
+                sh "cp presentation.pdf ${WORKSPACE}"
             }
         }
 
