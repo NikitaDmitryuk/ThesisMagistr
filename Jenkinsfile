@@ -6,6 +6,7 @@ pipeline {
         stage('Purge old build') {
             steps{
                 sh 'rm -f ./Thesis/*'
+                sh 'rm -f Thesis.zip'
             }
         }
 
@@ -32,9 +33,7 @@ pipeline {
                 sh 'mkdir -p Thesis'
                 sh 'mv Dmitryuk_Nikita_FN4-41M_diploma.pdf ./Thesis/Dmitryuk_Nikita_FN4-41M_diploma.pdf'
                 sh 'mv Dmitryuk_Nikita_FN4-41M_presentation.pdf ./Thesis/Dmitryuk_Nikita_FN4-41M_presentation.pdf'
-                sh 'rm -f Thesis.zip'
-                sh 'rm -f ./Thesis/Thesis.zip'
-                script{ zip zipFile: 'Thesis.zip', archive: false, dir: 'Thesis' }
+                script{zip zipFile: 'Thesis.zip', archive: false, dir: 'Thesis'}
                 archiveArtifacts artifacts: 'Thesis.zip', fingerprint: true
                 sh 'mv Thesis.zip ./Thesis/Thesis.zip'
             }
