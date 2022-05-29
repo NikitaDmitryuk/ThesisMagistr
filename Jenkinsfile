@@ -3,6 +3,12 @@ pipeline {
 
     stages {
 
+        stage('Purge old build') {
+            steps{
+                sh 'rm -f ./Thesis/*'
+            }
+        }
+
         stage('Download container') {
             steps{
                 sh 'docker pull docker.io/2109199812/docker-latex'
