@@ -1,15 +1,15 @@
 
 all: docker-latex
 
-diplom: diplom.tex
-	pdflatex -interaction=nonstopmode diplom
-	bibtex diplom
-	pdflatex -interaction=nonstopmode diplom
-	pdflatex -interaction=nonstopmode diplom
+diploma: Dmitryuk_Nikita_FN4-41M_diploma.tex
+	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
+	bibtex Dmitryuk_Nikita_FN4-41M_diploma
+	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
+	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
 
-presentation: presentation.tex
-	pdflatex -interaction=nonstopmode presentation
-	pdflatex -interaction=nonstopmode presentation
+presentation: Dmitryuk_Nikita_FN4-41M_presentation.tex
+	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_presentation
+	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_presentation
 
 clean:
 	rm *.out
@@ -20,7 +20,7 @@ clean:
 	rm *.nav
 	rm *.snm
 
-release: diplom presentation clean
+release: diploma presentation clean
 
 docker-latex:
 	sudo systemctl start docker

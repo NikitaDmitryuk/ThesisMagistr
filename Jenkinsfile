@@ -9,9 +9,9 @@ pipeline {
             }
         }
 
-        stage('Build diplom'){
+        stage('Build diploma'){
             steps{
-                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diplom"'
+                sh 'docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make diploma"'
             }
         }
 
@@ -24,8 +24,8 @@ pipeline {
         stage('Archive thesis'){
             steps{
                 sh 'mkdir -p Thesis'
-                sh 'mv diplom.pdf ./Thesis/diplom.pdf'
-                sh 'mv presentation.pdf ./Thesis/presentation.pdf'
+                sh 'mv Dmitryuk_Nikita_FN4-41M_diploma.pdf ./Thesis/Dmitryuk_Nikita_FN4-41M_diploma.pdf'
+                sh 'mv Dmitryuk_Nikita_FN4-41M_presentation.pdf ./Thesis/Dmitryuk_Nikita_FN4-41M_presentation.pdf'
                 sh 'rm -f Thesis.zip'
                 sh 'rm -f ./Thesis/Thesis.zip'
                 script{ zip zipFile: 'Thesis.zip', archive: false, dir: 'Thesis' }
