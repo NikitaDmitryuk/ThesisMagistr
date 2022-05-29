@@ -9,6 +9,7 @@ diplom: diplom.tex
 
 presentation: presentation.tex
 	pdflatex -interaction=nonstopmode presentation
+	pdflatex -interaction=nonstopmode presentation
 
 clean:
 	rm *.out
