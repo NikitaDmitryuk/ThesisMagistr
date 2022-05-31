@@ -1,5 +1,4 @@
 
-\newpage
 \begin{center}
 \textbf{\large ГЛАВА 4 \\ Влияние дальнодействия силы притяжения на скорость нуклеации}
 \end{center}
@@ -56,7 +55,7 @@ DBSCAN может быть использован с любой функцией
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=\linewidth]{kepsilon.pdf}
+    \includegraphics[width=150mm]{kepsilon.pdf}
     \caption{Принцип работы алгоритма кластеризации DBSCAN для случая $k = 3$. Синие точки являются основными точками (конденсатом), поскольку область с радиусом $\varepsilon$, окружающая эти точки, содержит по меньшей мере трех соседей (не считая саму точку).
     Серые точки не имеют в своей $\varepsilon$~-~окрестности трех соседей, но имеют покрайней мере одну основную точку (частицу конденсата).
     Такие точки относятся к поверхности.
@@ -78,7 +77,7 @@ DBSCAN может быть использован с любой функцией
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=\linewidth]{Figure0.pdf}
+    \includegraphics[width=150mm]{Figure0.pdf}
     \caption{Выбор оптимального параметра $\varepsilon$. Красным цветом указаны точки для различных значений параметра $k$, наиболее удаленные от линии, соединяющей начало и конец кривой расстояний.}
     \label{epsilon_k}
 \end{figure}
@@ -156,7 +155,7 @@ U_{n-m}(r)=4 \varepsilon\left[\left(\frac{\sigma}{r}\right)^{n}-\left(\frac{\sig
 
 \begin{figure}[!t]
     \centering
-    \includegraphics[width=\linewidth]{MACR-Figure2.pdf}
+    \includegraphics[width=150mm]{MACR-Figure2.pdf}
     \caption{Фазовая диаграмма системы LJ12-6, изображенной на рисунке~\ref{D3_free_conf}.
     Оранжевые и синие символы — плотности газа и конденсата, полученные путем усреднения плотности областей, соответствующих конденсату и газу. Зеленые символы -- медиана $\rho_m=(\rho_g+\rho_c)/2$.
     Сплошная красная линия соответствует уравнению ~\eqref{MACR-eq4}.
@@ -320,6 +319,35 @@ U_{n-m}(r)=4 \varepsilon\left[\left(\frac{\sigma}{r}\right)^{n}-\left(\frac{\sig
 \section{Изучения скорости нуклеации в переохлажденных системах}
 \label{PRIMe-SecNucleation}
 
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\linewidth]{Otchet}
+    \caption{Процесс зарождения и роста кластеров в переохлажденной системе частиц взаимодействующих посредством потенциала Леннарда-Джонса.}
+    \label{otchet}
+\end{figure}
+
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=150mm]{countCluster}
+    \caption{Зависимость количества кластеров от времени.}
+    \label{countCluster}
+\end{figure}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=150mm]{countParticles}
+    \caption{Зависимость доли частиц, находящихся в конденсированном состоянии от времени для различных потенциалов.}
+    \label{countParticles}
+\end{figure}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=150mm]{meanParticles}
+    \caption{Зависимость среднего размера кластера от времени для систем с различным дальнодействием потенциала.}
+    \label{meanParticles}
+\end{figure}
+
 Для демонстрации возможностей нового метода распознавания фаз была выбрана задача определения влияния дальнодействия потенциала на скорость нуклеации в системе с одинаковой степенью переохлаждения.
 
 Для того, чтобы исключить влияние глубины потенциальной ямы на скорость нуклеации, был выбран нормированный потенциал из предыдущих работ~\ref{LJnm}.
@@ -332,35 +360,6 @@ U_{n-m}(r)=4 \varepsilon\left[\left(\frac{\sigma}{r}\right)^{n}-\left(\frac{\sig
 
 На рисунке~\ref{otchet} представлены снимки системы через разное время после начала моделирования. Новый алгоритм классификации на фазы позволяет наблюдать за процессами зарождения и последующего <<слипания>> кластеров.
 
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{Otchet}
-    \caption{Процесс зарождения и роста кластеров в переохлажденной системе частиц взаимодействующих посредством потенциала Леннарда-Джонса.}
-    \label{otchet}
-\end{figure}
-
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{countCluster}
-    \caption{Зависимость количества кластеров от времени.}
-    \label{countCluster}
-\end{figure}
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{countParticles}
-    \caption{Зависимость доли частиц, находящихся в конденсированном состоянии от времени для различных потенциалов.}
-    \label{countParticles}
-\end{figure}
-
-\begin{figure}[!t]
-    \centering
-    \includegraphics[width=\linewidth]{meanParticles}
-    \caption{Зависимость среднего размера кластера от времени для систем с различным дальнодействием потенциала.}
-    \label{meanParticles}
-\end{figure}
 
 На рисунке~\ref{countCluster} показана временная зависимость количества кластеров в системах с различным дальнодействием притяжения. Можно заметить, что дальнодействие притяжения существенно влияет на начальные этапы нуклеации, но дальнейшее увеличение кластеров посредством слипания никак не зависит от дальнодействия. Существенное отличие графиков на начальном этапе можно объяснить тем, что дальнодействие потенциала позволяет быстрее собраться частицам в кластер нужного размера для попадания в статистику, так как кластерами в данном алгоритме считаются только те скопления частиц, которые больше критического, то есть $k = 9$.
 
