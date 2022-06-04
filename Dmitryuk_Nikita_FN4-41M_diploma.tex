@@ -31,6 +31,7 @@ times % шрифт Times как основной
 \usepackage{amsmath} % align
 \usepackage[onehalfspacing]{setspace}% 1,5 интервал
 \usepackage{fancyhdr} % пакет для установки колонтитулов
+\usepackage{listings}
 
 
 \pagestyle{fancy} % смена стиля оформления страниц
@@ -74,5 +75,8 @@ times % шрифт Times как основной
 \renewcommand{\bibsection}{\centering\textbf{\large СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}
 \bibliographystyle{biblio/gost2008n}
 \bibliography{biblio/biblio}
+
+\newpage
+\input{chapters/appendix.tex}
 
 \end{document}
