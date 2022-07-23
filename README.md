@@ -9,7 +9,7 @@ Status of last deployment:
 
 Клонировать данный репозиторий в свой GitHub можно используя кнопку Fork, после чего данный репозиорий появится в ваших репозиториях и его можно будет менять.
 
-## Сборка
+## Сборка в Arch Linux
 
 Рекомендуется собирать этот шаблон в Arch Linux, однако без особых проблем получится собрать его и в Windows(сочувствую).
 
@@ -19,13 +19,31 @@ Status of last deployment:
 docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make release"
 ```
 
-или
+или просто
 
 ```bash
-make docker-latex
+make
 ```
 
-или, если установлен только texlive-full, команды сборки можно найти в файле **Makefile**. 
+или, если установлен только texlive-full, команды сборки можно найти в файле **Makefile**, однако, шрифта times new roman тогда не будет.
+
+## Сборка под Windows
+
+- [ ] [Установить Docker](https://docs.docker.com/desktop/install/windows-install/)
+
+После установки Docker надо перезапустить компьютер (он предложит сам).
+Затем, если он сразу не заработает, следовать его инструкциям, он предложить выполнить [следующие шаги](https://docs.microsoft.com/ru-ru/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package).
+При выборе дистрибутива Linux выбрать [Ubuntu 22.04 LTS](https://www.microsoft.com/store/apps/9PN20MSR04DW).
+Далее следовать иструкциям установки Ubuntu.
+После этих шагов Docker должен заработать.
+
+Скачиваем на комп данный репозиторий.
+
+Теперь можно собирать полный диплом и презентацию как она задумана, для этого необходимо в консоли запустить скрипт **makewin.bat** (проще всего открыть консоль в нужной папке написав в строке пути **cmd**).
+
+```console
+makewin.bat
+```
 
 ## Создание релиза
 
