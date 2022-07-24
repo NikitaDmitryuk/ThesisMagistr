@@ -1,27 +1,28 @@
+COMPILER_LATEX = pdflatex
+COMPILER_FLAGS = -interaction=nonstopmode
 
-all: docker-latex
+COMPILER_BIBTEX = bibtex
+BIBTEX_FLAGS =
 
-diploma: Dmitryuk_Nikita_FN4-41M_diploma.tex
-	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
-	bibtex Dmitryuk_Nikita_FN4-41M_diploma
-	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
-	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_diploma
+RM = rm
+RM_FILES = *.out *.aux *.blg *.bbl *.toc *.nav *.snm
 
-presentation: Dmitryuk_Nikita_FN4-41M_presentation.tex
-	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_presentation
-	pdflatex -interaction=nonstopmode Dmitryuk_Nikita_FN4-41M_presentation
+SOURCES := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n")
+RESULTS := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
+
+all:
+	docker run --rm -i -v "${PWD}":/diplom:Z 2109199812/docker-latex bash -c "make release"
+
+release: clean_pdf $(RESULTS) clean
+
+%.pdf: %.tex
+	$(COMPILER_LATEX) $(COMPILER_FLAGS) $<
+	-$(COMPILER_BIBTEX) $(BIBTEX_FLAGS) $*
+	$(COMPILER_LATEX) $(COMPILER_FLAGS) $<
+	$(COMPILER_LATEX) $(COMPILER_FLAGS) $<
 
 clean:
-	rm *.out
-	rm *.aux 
-	rm *.blg 
-	rm *.bbl 
-	rm *.toc
-	rm *.nav
-	rm *.snm
+	$(RM) $(RM_FILES)
 
-release: diploma presentation clean
-
-docker-latex:
-	sudo systemctl start docker
-	docker run --rm -i -v ${PWD}:/diplom:Z 2109199812/docker-latex bash -c "make release"
+clean_pdf:
+	-$(RM) $(RESULTS)
