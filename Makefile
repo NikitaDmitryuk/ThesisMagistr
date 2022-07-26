@@ -18,7 +18,9 @@ release: clean_results $(RESULTS) clean
 
 %.pdf: %.tex
 	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
-	-$(COMPILER_BIBTEX) $*
+	@if grep -r "citation{.*}" $*.aux; then \
+		$(COMPILER_BIBTEX) $*; \
+	fi
 	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
 	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
 
