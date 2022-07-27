@@ -279,5 +279,4 @@ TSWLatexianTemp*
 .vscode/
 
 # pdf output
-Dmitryuk_Nikita_FN4-41M_diploma.pdf
-Dmitryuk_Nikita_FN4-41M_presentation.pdf
+/*.pdf
