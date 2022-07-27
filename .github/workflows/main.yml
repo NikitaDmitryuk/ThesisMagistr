@@ -1,0 +1,24 @@
+name: Create_Thesis
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+        image: docker.io/2109199812/docker-latex:latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Compile Thesis
+        shell: bash
+        run: make release
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            *.pdf

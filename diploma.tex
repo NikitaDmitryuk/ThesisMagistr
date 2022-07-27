@@ -1,0 +1,82 @@
+\documentclass[
+candidate, % тип документа
+subf, % подключить и настроить пакет subfig для вложенной нумерации рисунков
+times % шрифт Times как основной
+]{disser}
+
+\renewcommand{\rmdefault}{ftm}
+
+\usepackage[T2A]{fontenc}
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{pdfpages}
+\ifpdf\usepackage{epstopdf}\fi
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\usepackage{tabularx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{multirow}
+\usepackage{afterpage}
+\usepackage[font={normal}]{caption}
+\usepackage{amsmath} % align
+\usepackage[onehalfspacing]{setspace}% 1,5 интервал
+\usepackage{fancyhdr} % пакет для установки колонтитулов
+\usepackage{listings}
+
+
+\pagestyle{fancy} % смена стиля оформления страниц
+\fancyhf{} % очистка текущих значений
+\fancyfoot[C]{\thepage} % установка верхнего колонтитула
+\renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
+
+\captionsetup{format=hang,labelsep=period}
+
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
+
+% Включать подсекции в оглавление
+\setcounter{tocdepth}{2}
+
+\graphicspath{{images/}}
+
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
+
+
+\begin{document}
+
+\includepdf[pages={1-1}]{additional/Title.pdf}
+\newpage
+\input{chapters/introduction.tex}
+\newpage
+\input{chapters/chapter_1.tex}
+\newpage
+\input{chapters/chapter_2.tex}
+\newpage
+\input{chapters/chapter_3.tex}
+\newpage
+\input{chapters/chapter_4.tex}
+\newpage
+\input{chapters/conclusion.tex}
+\newpage
+
+
+\addcontentsline{toc}{chapter}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+\renewcommand{\bibsection}{\centering\textbf{\large СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}}
+\bibliographystyle{biblio/gost2008n}
+\bibliography{biblio/biblio}
+
+\newpage
+\input{chapters/appendix.tex}
+
+\end{document}

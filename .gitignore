@@ -274,3 +274,9 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# vc code
+.vscode/
+
+# pdf output
+/*.pdf
