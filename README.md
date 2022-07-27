@@ -35,10 +35,10 @@
 ├── install
 │   └── скрипт установшик для linux
 │
-├── diploma
+├── diploma.tex
 │   └── главный файл диплома
 │
-├── presentation
+├── presentation.tex
 │   └── презентация
 │
 └── makewin.bat
