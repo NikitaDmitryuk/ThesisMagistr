@@ -1,6 +1,7 @@
-COMPILER_LATEX = pdflatex
-PDFLATEX_FLAGS = -interaction=nonstopmode
-COMPILER_BIBTEX = bibtex
+LATEX_COMPILER = pdflatex
+LATEX_COMPILER_FLAGS = -interaction=nonstopmode
+BIBLIO_COMPILER = bibtex
+BIBLIO_COMPILER_FLAGS = 
 
 RM = rm -f
 TEMPORARY_FILES = *.out *.aux *.blg *.bbl *.toc *.nav *.snm
@@ -22,12 +23,12 @@ all:
 release: clean_before_build $(RESULTS) clean_after_build
 
 %.pdf: %.tex
-	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 	@if grep -r "citation{.*}" $*.aux; then \
-		$(COMPILER_BIBTEX) $*; \
+		$(BIBLIO_COMPILER) $(BIBLIO_COMPILER_FLAGS) $*; \
 	fi
-	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
-	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
+	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 
 clean_before_build:
 	$(RM) $(RESULTS) $(LOG_FILES) $(TEMPORARY_FILES)
