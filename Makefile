@@ -14,7 +14,7 @@ RESULTS := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed 
 all:
 	docker run --rm -i -v "${PWD}":/diplom:Z 2109199812/docker-latex bash -c "make release"
 
-release: clean_results $(RESULTS) clean
+release: clean clean_results $(RESULTS) clean
 
 %.pdf: %.tex
 	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
