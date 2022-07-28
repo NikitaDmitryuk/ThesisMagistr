@@ -1,5 +1,5 @@
 COMPILER_LATEX = pdflatex
-COMPILER_FLAGS = -interaction=nonstopmode
+PDFLATEX_FLAGS = -interaction=nonstopmode
 COMPILER_BIBTEX = bibtex
 
 RM = rm -f
@@ -14,7 +14,7 @@ DOCKER_COMMAND = bash -c "make release"
 SOURCES := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n")
 RESULTS := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
 
-.PHONY: all clean_before_build clean_after_build
+.PHONY: all release clean_before_build clean_after_build
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
@@ -22,12 +22,12 @@ all:
 release: clean_before_build $(RESULTS) clean_after_build
 
 %.pdf: %.tex
-	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
+	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
 	@if grep -r "citation{.*}" $*.aux; then \
 		$(COMPILER_BIBTEX) $*; \
 	fi
-	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
-	$(COMPILER_LATEX) $(COMPILER_FLAGS) $*
+	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
+	$(COMPILER_LATEX) $(PDFLATEX_FLAGS) $*
 
 clean_before_build:
 	$(RM) $(RESULTS) $(LOG_FILES) $(TEMPORARY_FILES)
