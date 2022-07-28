@@ -12,15 +12,14 @@ DOCKER_FLAGS = --rm -i -v "${PWD}":/diplom:Z
 DOCKER_IMAGE = 2109199812/docker-latex
 DOCKER_COMMAND = bash -c "make release"
 
-SOURCES := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n")
-RESULTS := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
+FILES_TO_BUILD := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
 
 .PHONY: all release clean_before_build clean_after_build
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
 
-release: clean_before_build $(RESULTS) clean_after_build
+release: clean_before_build $(FILES_TO_BUILD) clean_after_build
 
 %.pdf: %.tex
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
@@ -31,7 +30,7 @@ release: clean_before_build $(RESULTS) clean_after_build
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 
 clean_before_build:
-	$(RM) $(RESULTS) $(LOG_FILES) $(TEMPORARY_FILES)
+	$(RM) $(FILES_TO_BUILD) $(LOG_FILES) $(TEMPORARY_FILES)
 
 clean_after_build:
 	$(RM) $(TEMPORARY_FILES)
