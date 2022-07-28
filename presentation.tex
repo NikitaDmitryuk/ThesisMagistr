@@ -1,21 +1,15 @@
-
 \documentclass{beamer}
 \usetheme{Boadilla}
-
 
 \usepackage[T2A]{fontenc}			% кодировка
 \usepackage[utf8]{inputenc}			% кодировка исходного текста
 \usepackage[english,russian]{babel}	% локализация и переносы
-
 \usepackage{amsmath,amssymb}
 \usepackage{autonum}
 \usepackage{wrapfig}
-
 \usepackage{array}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
-
-
 \usepackage[labelformat=empty]{caption}
 \graphicspath{{./images/}{./images/logo/}}
 \setbeamertemplate{navigation symbols}{}
@@ -24,6 +18,9 @@
 
 
 \begin{document}
+
+
+
 
 \begin{frame}
 	\begin{center}\tiny
@@ -57,7 +54,6 @@
 \end{center}
 \end{column}
 
-
 \begin{column}{0.50\textwidth}
 \begin{center}
 \tiny Научный руководитель:\\
@@ -67,18 +63,14 @@
 \tiny МГТУ им. Н.Э. Баумана \\
 \end{center}
 
-
 \end{column}
 \end{columns}
-
 
 \vspace{0.5cm}
 \begin{center}
 \tiny Москва, $2022$
 \end{center}
 \end{frame}
-
-
 
 
 
@@ -98,12 +90,8 @@
  \item Численно рассчитана диффузия и спектры на жидкостной бинодали веществ
  \item Разработан новый метод распознавания фаз, который универсален по отношению к размерности системы и формам кластеров, с сохранением точности расчета на уровне других методов
 \end{itemize}
-
-
 }
 \end{frame}
-
-
 
 
 
@@ -122,12 +110,8 @@
 \item Расчет и анализ транспортных свойств и коллективных возбуждений на жидкостных бинодалях.
 \item Применение нового метода распознавания фаз для изучения скорости нуклеации в переохлажденных системах Леннарда-Джонса с различным дальнодействием притяжения.
 \end{itemize}
-
-
 }
 \end{frame}
-
-
 
 
 
@@ -139,15 +123,8 @@
 \item Температурная зависимость диффузии имеет линейную зависимость в широком диапазоне температур на бинодали жидкость-газ, отклонение от которой коррелирует с изменением характера спектра возбуждений. Отношение температур критической к тройной точке убывает с уменьшением дальнодействия потенциала взаимодействия
 \item Разработанный метод распознавания фаз на основе алгоритма кластеризации обладает универсальностью как к размерности системы так и к форме кластеров с сохранением точности на уровне других методов
 \end{enumerate}
-
-
-
 }
 \end{frame}
-
-
-
-
 
 
 
@@ -162,7 +139,6 @@
     \includegraphics[width=\textwidth]{blocksheme}
 
 \end{column}
-
 
 \begin{column}{0.5\linewidth}
 
@@ -179,14 +155,8 @@
 \begin{equation}
 \overrightarrow{\mathrm{r}}(\mathrm{t}+\Delta \mathrm{t})=2 \overrightarrow{\mathrm{r}}(\mathrm{t})-\overrightarrow{\mathrm{r}}(\mathrm{t}-\Delta \mathrm{t})+\overrightarrow{\mathrm{a}}(\mathrm{t}) \Delta \mathrm{t}^{2}+\mathrm{O}\left(\Delta \mathrm{t}^{4}\right), \hspace{0.1cm} \text{где} \hspace{0.2cm} \vec{a}(t)=-\frac{\operatorname{grad}(\mathrm{U}(\mathrm{\overrightarrow{r}}(\mathrm{t})))}{\mathrm{m}}
 \end{equation}
-
 }
-
-
 \end{frame}
-
-
-
 
 
 
@@ -236,15 +206,11 @@ U_{ethane}(r) = \tilde \varepsilon\left[\left(\frac{\sigma}{r}\right)^{16}-\left
 
 \end{column}
 \end{columns}
-
 }
 
-%\vspace{0.2cm}
 \tiny{J. R. Mick, et al., Journal of Chemical $\And$ Engineering Data 62, 1806 (2017).}
 
 \end{frame}
-
-
 
 
 
@@ -261,7 +227,6 @@ U_{ethane}(r) = \tilde \varepsilon\left[\left(\frac{\sigma}{r}\right)^{16}-\left
     \href{run:video_flat_layer.mp4}{\includegraphics[width=\textwidth]{MACR-Figure0.png}}
 
 \end{figure}
-
 
 \end{column}
 
@@ -293,18 +258,13 @@ $\delta$ - характерная толщина
 \end{column}
 \begin{column}{0.001\linewidth}
 \end{column}
-
 \end{columns}
-
 }
 
 \vspace{0.5cm}
 \tiny{F. Biscay, et al., The Journal of Physical Chemistry B 112, 13885 (2008).}
 
 \end{frame}
-
-
-
 
 
 
@@ -325,13 +285,8 @@ $\delta$ - характерная толщина
 
 
 
-
-
-
-
 \begin{frame}{Пример распознавания частиц в 2D системе LJ12-6.}
 \footnotesize{
-
 
 \begin{figure}[!t]
     \centering
@@ -341,12 +296,8 @@ $\delta$ - характерная толщина
     (с) пример выделения регулярной поверхности, охватывающей все частицы кластера.}
     \label{DBSCAN-Illustr}
 \end{figure}
-
 }
-
 \end{frame}
-
-
 
 
 
@@ -362,12 +313,7 @@ $\delta$ - характерная толщина
     \label{D3_free_conf}
 \end{figure}
 }
-
 \end{frame}
-
-
-
-
 
 
 
@@ -385,7 +331,6 @@ $\delta$ - характерная толщина
     \includegraphics[width=\textwidth]{MACR-Figure-1.pdf}
 
 \end{figure}
-
 
 \end{column}
 
@@ -406,19 +351,12 @@ $\beta$ - критический индекс.}
 
 \end{column}
 \end{columns}
-
 }
 
 \vspace{0.5cm}
 \tiny{E. Luijten et al., Physical Review Letters 89, 025703 (2002).\\
 F. Biscay, et al., The Journal of Physical Chemistry B 112, 13885 (2008).}
 \end{frame}
-
-
-
-
-
-
 
 
 
@@ -435,7 +373,6 @@ F. Biscay, et al., The Journal of Physical Chemistry B 112, 13885 (2008).}
 
 \begin{column}{0.5\linewidth}
 
-
 Cреднеквадратичное смещение частиц:
 \begin{align}
     \sigma^2(t) &= \sum\limits_{\alpha = 1}^{N} (r_{\alpha}(t) - r_{\alpha}(0))^2 / N \\
@@ -443,13 +380,11 @@ Cреднеквадратичное смещение частиц:
     \label{eqRMS}
 \end{align}
 
-
 Подвижность частиц $\mu$ связана с диффузией:
 \begin{equation}
     \mu = \frac{D}{T}
     \label{eqMobility}
 \end{equation}
-
 
 Спектр потока скорости:
 \begin{align}
@@ -460,7 +395,6 @@ Cреднеквадратичное смещение частиц:
 \end{column}
 \end{columns}
 
-
 \vspace{0.5cm}
 
 Полный спектр потока скорости $C(q, \omega) = C_L(q, \omega) + (D-1)C_T(q, \omega)$:
@@ -470,22 +404,12 @@ Cреднеквадратичное смещение частиц:
 \end{aligned}
 \label{eq5}
 \end{equation}
-
 }
-
 \vspace{1.0cm}
 \tiny{N.P. Kryuchkov, et al., Scientific Reports 9, 10483 (2019). \\
 S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
 \end{frame}
-
-
-
-
-
-
-
-
 
 
 
@@ -498,16 +422,10 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \caption{\footnotesize{\textbf{(a) Фазовые диаграммы рассматриваемых потенциалов:} фазовые диаграммы рассчитанные плоским слоем.\\
  \textbf{(b) Температурная зависимость подвижности частиц:} подвижность частиц рассчитанная на бинодали жидкость -- газ.}}
 \end{figure}
-
 }
 
 \tiny{Influence of Long-Range Potential Action on Mobility on a Liquid Binodal / Nikita A. Dmitryuk, Lucia A. Mistryukova, Nikita P. Kryuchkov, Sergey A. Khrapak, Stanislav O. Yurchenko. // \textit{The Journal of Chemical Physics}}
-
 \end{frame}
-
-
-
-
 
 
 
@@ -522,18 +440,10 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
  \textbf{(b) - (f) Спектры потенциала LJ12-6:} Красным цветом показаны спектры, рассчитанные совместным анализом мод.}}
 \label{Figure4}
 \end{figure}
-
 }
 
 \tiny{Influence of Long-Range Potential Action on Mobility on a Liquid Binodal / Nikita A. Dmitryuk, Lucia A. Mistryukova, Nikita P. Kryuchkov, Sergey A. Khrapak, Stanislav O. Yurchenko. // \textit{The Journal of Chemical Physics}}
-
 \end{frame}
-
-
-
-
-
-
 
 
 
@@ -555,11 +465,8 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
 
 
-
-
 \begin{frame}{Скорость нуклеации в переохлажденных системах}
 \footnotesize{
-
 
 \begin{figure}[!t]
 	 \centering
@@ -574,15 +481,9 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \includegraphics[width=\linewidth]{nucleation.pdf}
     \label{nucleation}
 \end{figure}
-
-
 }
 
 \end{frame}
-
-
-
-
 
 
 
@@ -609,15 +510,8 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN. Алгоритм показывает высокую точность распознавания фаз, и открывает новые области для изучения, например влияние дальнодействия потенциала на скорость нуклеации в переохлажденных системах.
 
 \end{itemize}
-
-
 }
 \end{frame}
-
-
-
-
-
 
 
 
@@ -633,7 +527,6 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \item Tsiok, E. N., Fomin, Y. D., Gaiduk, E. A., Tareyeva, E. E., Ryzhov, V. N., Libet, P. A., ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. The Journal of Chemical Physics, 156(11), 114703.
 \end{itemize}
 
-
 \textbf {Результаты работ представлены на следующих конференциях:}
 
 \begin{itemize}
@@ -641,13 +534,8 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \item Современные тенденции развития функциональных материалов, Сочи, 11-14 ноября 2021г.
     \item Dynamic phenomena workshop 2022.
 \end{itemize}
-
 }
 \end{frame}
-
-
-
-
 
 
 
@@ -679,14 +567,8 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
     \includegraphics[width=\textwidth]{python_logo.png}
 \end{center}
 \end{column}
-
 \end{columns}
-
 \end{frame}
-
-
-
-
 
 
 
@@ -694,9 +576,6 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 \begin{frame}
     \centering \Huge \textcolor{blue}{Ваши вопросы!}
 \end{frame}
-
-
-
 
 
 
@@ -715,7 +594,6 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
 \tiny{Influence of Long-Range Potential Action on Mobility on a Liquid Binodal / Nikita A. Dmitryuk, Lucia A. Mistryukova, Nikita P. Kryuchkov, Sergey A. Khrapak, Stanislav O. Yurchenko. // \textit{The Journal of Chemical Physics}}
 \end{frame}
-
 
 
 
@@ -747,12 +625,10 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 \caption{\footnotesize \textbf{Аналогичные графики для потенциала LJ16-6}}
 \label{Figure4}
 \end{figure}
-
 }
 
 \tiny{Influence of Long-Range Potential Action on Mobility on a Liquid Binodal / Nikita A. Dmitryuk, Lucia A. Mistryukova, Nikita P. Kryuchkov, Sergey A. Khrapak, Stanislav O. Yurchenko. // \textit{The Journal of Chemical Physics}}
 \end{frame}
-
 
 
 
@@ -766,7 +642,6 @@ S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 \caption{\footnotesize \textbf{Зависимость тройных и критических точек от дальнодействия притяжения в системе}}
 \label{Figure4}
 \end{figure}
-
 }
 
 \tiny{Tsiok, E. N., Dmitryuk, N.A, ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. // \textit{The Journal of Chemical Physics}}
