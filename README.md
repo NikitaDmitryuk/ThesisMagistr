@@ -1,6 +1,6 @@
 ![CreateThesis](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
 
-# Latex шаблон диплома МГТУ им. Баумана (Latex BMSTU Diploma Template)
+# Latex шаблон диплома и презентации МГТУ им. Баумана (Latex BMSTU diploma and presentation template)
 
 Выпускная квалификационная работа магистра, оформленная в Latex. Ее можно использовать как шаблон.
 Она включает в себя шрифт Times New Roman и автоматическое создание библиографии по ГОСТ 2008.
