@@ -17,8 +17,13 @@ jobs:
         shell: bash
         run: make release
 
+      - name: Rename release file
+        shell: bash
+        run: |
+          for filename in $(find "$(pwd)" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1/g"); do cp ${filename}.pdf ${filename}-${{github.ref}}.pdf; done
+      
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            *.pdf
+            find "$(pwd)" -maxdepth 1 -name '*-${{github.ref}}.pdf' -printf "%f\n"
