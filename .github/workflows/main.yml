@@ -26,4 +26,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            find "$(pwd)" -maxdepth 1 -name '*-${{GITHUB_REF#refs/*/}}.pdf' -printf "%f\n"
+            find "$(pwd)" -maxdepth 1 -name '*-${GITHUB_REF#refs/*/}.pdf' -printf "%f\n"
