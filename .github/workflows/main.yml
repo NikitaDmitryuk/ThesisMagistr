@@ -20,10 +20,10 @@ jobs:
       - name: Rename release file
         shell: bash
         run: |
-          for filename in $(find "$(pwd)" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1/g"); do cp ${filename}.pdf ${filename}-${GITHUB_REF#refs/*/}.pdf; done
+          for filename in $(find "$(pwd)" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1/g"); do mv ${filename}.pdf ${filename}-${GITHUB_REF#refs/*/}.pdf; done
       
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            find "$(pwd)" -maxdepth 1 -name '*-${GITHUB_REF#refs/*/}.pdf' -printf "%f\n"
+            *pdf
