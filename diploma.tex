@@ -51,32 +51,21 @@ times % шрифт Times как основной
 
 % Титульник (первая страница файла Title.pdf)
 \includepdf[pages={1-1}]{additional/Title.pdf}
-\newpage
 
 % Аннотация, Содержание, Введение
 \input{chapters/introduction.tex}
-\newpage
 
 % Главы
 \input{chapters/chapter_1.tex}
-\newpage
 \input{chapters/chapter_2.tex}
-\newpage
 \input{chapters/chapter_3.tex}
-\newpage
 \input{chapters/chapter_4.tex}
-\newpage
 \input{chapters/conclusion.tex}
-\newpage
 
-% Вставка библиографии
-\addcontentsline{toc}{chapter}{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ} % это будет отображаться в содержании
-\renewcommand{\bibsection}{\centering\textbf{\large СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}} % смена названия библиографии по умолчанию
-\bibliographystyle{biblio/gost2008n}
-\bibliography{biblio/biblio} % папка biblio, файл biblio.bib
+% Библиография
+\input{chapters/biblio.tex}
 
 % Приложение (у меня пустое)
-\newpage
 \input{chapters/appendix.tex}
 
 \end{document}
