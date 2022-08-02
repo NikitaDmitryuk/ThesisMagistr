@@ -1,0 +1,48 @@
+\documentclass[
+candidate, % тип документа
+subf, % подключить и настроить пакет subfig для вложенной нумерации рисунков
+times % шрифт Times как основной
+]{disser}
+
+\renewcommand{\rmdefault}{ftm} % Основная строчка, которая позволяет получить шрифт Times New Roman
+
+\usepackage[T2A]{fontenc}
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{pdfpages}
+\ifpdf\usepackage{epstopdf}\fi
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\usepackage{tabularx}
+\usepackage{dcolumn}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{epstopdf}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage{multirow}
+\usepackage{afterpage}
+\usepackage[font={normal}]{caption}
+\usepackage{amsmath} % align
+\usepackage[onehalfspacing]{setspace}% 1,5 интервал
+\usepackage{fancyhdr} % пакет для установки колонтитулов
+\usepackage{listings}
+
+\pagestyle{fancy} % смена стиля оформления страниц
+\fancyhf{} % очистка текущих значений
+\fancyfoot[C]{\thepage} % установка верхнего колонтитула
+\renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
+\captionsetup{format=hang,labelsep=period}
+% Использовать полужирное начертание для векторов
+\let\vec=\mathbf
+
+\setcounter{tocdepth}{2} % Номер страницы, с которой начинается нумерация
+\graphicspath{{images/}} % Папки, в которых ищутся картинки
+
+\pagestyle{footcenter}
+\chapterpagestyle{footcenter}
