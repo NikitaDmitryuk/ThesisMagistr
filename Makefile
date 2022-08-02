@@ -21,6 +21,12 @@ all:
 
 release: clean_before_build $(FILES_TO_BUILD) clean_after_build
 
+diploma:
+	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_before_build && make diploma.pdf"
+
+presentation:
+	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_before_build && make presentation.pdf"
+
 %.pdf: %.tex
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 	@if grep -r "citation{.*}" $*.aux; then \
