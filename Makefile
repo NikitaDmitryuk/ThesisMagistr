@@ -14,18 +14,18 @@ DOCKER_COMMAND = bash -c "make release"
 
 FILES_TO_BUILD := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
 
-.PHONY: all release clean_before_build clean_after_build
+.PHONY: all release clean clean_after_build
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
 
-release: clean_before_build $(FILES_TO_BUILD) clean_after_build
+release: clean $(FILES_TO_BUILD) clean_after_build
 
 diploma:
-	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_before_build && make diploma.pdf"
+	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_diploma && make diploma.pdf && make clean_after_build"
 
 presentation:
-	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_before_build && make presentation.pdf"
+	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_presentation && make presentation.pdf && make clean_after_build"
 
 %.pdf: %.tex
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
@@ -35,8 +35,14 @@ presentation:
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 	$(LATEX_COMPILER) $(LATEX_COMPILER_FLAGS) $*
 
-clean_before_build:
+clean:
 	$(RM) $(FILES_TO_BUILD) $(LOG_FILES) $(TEMPORARY_FILES)
 
 clean_after_build:
 	$(RM) $(TEMPORARY_FILES)
+
+clean_diploma:
+	$(RM) $(TEMPORARY_FILES) diploma.pdf
+
+clean_presentation:
+	$(RM) $(TEMPORARY_FILES) presentation.pdf
