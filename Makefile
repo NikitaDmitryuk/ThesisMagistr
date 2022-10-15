@@ -14,7 +14,7 @@ DOCKER_COMMAND = bash -c "make release"
 
 FILES_TO_BUILD := $(shell find "${PWD}" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1.pdf/g")
 
-.PHONY: all release clean clean_after_build
+.PHONY: all release clean clean_after_build clean_diploma clean_presentation
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
