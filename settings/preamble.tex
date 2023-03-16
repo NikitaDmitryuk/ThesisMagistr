@@ -1,48 +1,68 @@
 \documentclass[
-candidate, % тип документа
-subf, % подключить и настроить пакет subfig для вложенной нумерации рисунков
-times % шрифт Times как основной
+candidate, % document type
+subf, % use and configure subfig package for nested figure numbering
+times % use Times font as main
 ]{disser}
 
-\renewcommand{\rmdefault}{ftm} % Основная строчка, которая позволяет получить шрифт Times New Roman
+% Кодировка и язык
+\usepackage[T2A]{fontenc} % поддержка кириллицы
+\usepackage[utf8]{inputenc} % кодировка исходного текста
+\usepackage[english,russian]{babel} % переключение языков
 
-\usepackage[T2A]{fontenc}
-\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry}
-\usepackage{graphicx}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
-\usepackage{pdfpages}
-\ifpdf\usepackage{epstopdf}\fi
-\usepackage{array}
+% Геометрия страницы и графика
+\usepackage[left=3cm, right=1cm, top=2cm, bottom=2cm]{geometry} % поля страницы
+\usepackage{graphicx} % подключение графики
+\usepackage{pdfpages} % вставка pdf-страниц
+
+% Таблицы
+\usepackage{array} % расширенные возможности для работы с таблицами
+\usepackage{tabularx} % автоматический подбор ширины столбцов
+\usepackage{dcolumn} % выравнивание чисел по разделителю
+
+% Математика
+\usepackage{bm} % полужирное начертание для математических символов
+\usepackage{amsmath} % дополнительные математические возможности
+\usepackage{amssymb} % дополнительные математические символы
+
+% Библиография и ссылки
+\usepackage{cite} % поддержка цитирования
+\usepackage{hyperref} % создание гиперссылок
+
+% Прочее
+\usepackage{color} % работа с цветом
+\usepackage{epstopdf} % конвертация eps в pdf
+\usepackage{multirow} % объединение ячеек таблиц по вертикали
+\usepackage{afterpage} % вставка материала после текущей страницы
+\usepackage[font={normal}]{caption} % настройка подписей к рисункам и таблицам
+\usepackage[onehalfspacing]{setspace} % полуторный интервал
+\usepackage{fancyhdr} % установка колонтитулов
+\usepackage{listings} % поддержка вставки исходного кода
+
+% Установка шрифта Times New Roman
+\renewcommand{\rmdefault}{ftm}
+
+% Создание нового типа столбца для выравнивания содержимого по центру
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
 \newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
-\usepackage{tabularx}
-\usepackage{dcolumn}
-\usepackage{bm}
-\usepackage{hyperref}
-\usepackage{color}
-\usepackage{epstopdf}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{cite}
-\usepackage{multirow}
-\usepackage{afterpage}
-\usepackage[font={normal}]{caption}
-\usepackage{amsmath} % align
-\usepackage[onehalfspacing]{setspace}% 1,5 интервал
-\usepackage{fancyhdr} % пакет для установки колонтитулов
-\usepackage{listings}
 
-\pagestyle{fancy} % смена стиля оформления страниц
-\fancyhf{} % очистка текущих значений
-\fancyfoot[C]{\thepage} % установка верхнего колонтитула
-\renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
+% Настройка стиля страницы
+\pagestyle{fancy}      % Использование стиля "fancy" для оформления страниц
+\fancyhf{}              % Очистка текущих значений колонтитулов
+\fancyfoot[C]{\thepage} % Установка номера страницы в нижнем колонтитуле по центру
+\renewcommand{\headrulewidth}{0pt} % Удаление разделительной линии в верхнем колонтитуле
+
+% Настройка подписей к изображениям и таблицам
 \captionsetup{format=hang,labelsep=period}
-% Использовать полужирное начертание для векторов
+
+% Использование полужирного начертания для векторов
 \let\vec=\mathbf
 
-\setcounter{tocdepth}{2} % Номер страницы, с которой начинается нумерация
-\graphicspath{{images/}} % Папки, в которых ищутся картинки
+% Установка глубины оглавления
+\setcounter{tocdepth}{2}
 
+% Указание папки для поиска изображений
+\graphicspath{{images/}}
+
+% Установка стилей страницы и главы
 \pagestyle{footcenter}
 \chapterpagestyle{footcenter}
