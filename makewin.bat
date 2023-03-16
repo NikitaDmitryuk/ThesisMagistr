@@ -1,16 +1,16 @@
 @echo off
 SETLOCAL
 
-rem - отвечает за комментирование
+rem - Used for commenting
 
-rem  Сборка всех файлов .tex в основной директории
+rem Build all .tex files in the main directory
 docker run --rm -i -v "%cd%":/diplom:Z 2109199812/docker-latex bash -c "make release"
 
-rem  Сборка файла diploma.pdf
-rem  docker run --rm -i -v "%cd%":/diplom:Z 2109199812/docker-latex bash -c "make clean_before_build && make diploma.pdf"
+rem Build diploma.pdf file
+rem docker run --rm -i -v "%cd%":/diplom:Z 2109199812/docker-latex bash -c "make diploma"
 
-rem  Сборка файла presentation.pdf
-rem  docker run --rm -i -v "%cd%":/diplom:Z 2109199812/docker-latex bash -c "make clean_before_build && make presentation.pdf"
+rem Build presentation.pdf file
+rem docker run --rm -i -v "%cd%":/diplom:Z 2109199812/docker-latex bash -c "make presentation"
 
 pause
 
