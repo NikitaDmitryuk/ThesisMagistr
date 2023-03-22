@@ -1,4 +1,6 @@
-![CreateThesis](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
+![build](https://img.shields.io/github/actions/workflow/status/NikitaDmitryuk/ThesisMagistr/main.yml)
+![downloads](https://img.shields.io/github/downloads/NikitaDmitryuk/ThesisMagistr/total)
+![release](https://img.shields.io//github/v/release/NikitaDmitryuk/ThesisMagistr?display_name=tag)
 
 # Latex шаблон диплома и презентации МГТУ им. Баумана (Latex BMSTU diploma and presentation template)
 
@@ -123,7 +125,21 @@ git push --tags
 
 Рекомендую удалить все содержимое файла **biblio.bib** и добавлять по одному свои источники, так как при случайном добавлении дубликата bibtex будет выдавать ошибки.
 
+P.S. В новой версии диплома добавлена утилита на python для очистки списка литературы от неиспользуемых источников. Она находится в папке **biblio**.
+
+Для ее запуска воспользуйтей следующей командой в терминале, отрытом в папке с библиографией:
+
+```bash
+python rm_extra_bib_items.py
+```
+
+Программа ищет цитирования во всех файлах `.tex` в папке **chapters**, и нужные источники из файла **bibliography.bib** сохраняет в новый файл с названием **bibliography.bib.new**.
+
+Программа не убирает дубликаты источников. Для избежания дубликатов для *ID* источника нужно использовать `DOI`. Как это делать написано далее.
+
 ### Алгоритм добавления нового литературного источника
+
+`DOI` - цифровой идентификатор объекта (digital object identifier). Используется для однозначного идентифицирования статьи. Кроме того, статья может находится на сайтах с разными именами, но ссылка `https://doi.org/{DOI}` будет всегда указывать на нее.
 
 1. Ищем DOI статьи, которую хотим добавить в список литературы. Удобно делать это через сайт [Google Scholar](https://scholar.google.com/). Зачастую это бывает часть URL ссылки на работу.
 2. Вставляем DOI на сайте [doi2bib](https://www.doi2bib.org/).
