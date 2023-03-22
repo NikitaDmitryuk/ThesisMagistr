@@ -1,6 +1,6 @@
 ![build](https://img.shields.io/github/actions/workflow/status/NikitaDmitryuk/ThesisMagistr/main.yml)
 ![downloads](https://img.shields.io/github/downloads/NikitaDmitryuk/ThesisMagistr/total)
-![release](https://img.shields.io//github/v/release/NikitaDmitryuk/ThesisMagistr?display_name=tag)
+![release](https://img.shields.io/github/v/release/NikitaDmitryuk/ThesisMagistr?display_name=tag)
 
 # Latex шаблон диплома и презентации МГТУ им. Баумана (Latex BMSTU diploma and presentation template)
 
