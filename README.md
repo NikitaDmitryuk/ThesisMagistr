@@ -1,4 +1,6 @@
-![CreateThesis](https://github.com/NikitaDmitryuk/ThesisMagistr/actions/workflows/main.yml/badge.svg)
+![build](https://img.shields.io/github/actions/workflow/status/NikitaDmitryuk/ThesisMagistr/main.yml)
+![downloads](https://img.shields.io/github/downloads/NikitaDmitryuk/ThesisMagistr/total)
+![release](https://img.shields.io/github/v/release/NikitaDmitryuk/ThesisMagistr?display_name=tag)
 
 # Latex шаблон диплома и презентации МГТУ им. Баумана (Latex BMSTU diploma and presentation template)
 
@@ -117,13 +119,29 @@ git push --tags
 Автоматически запустится процесс GitHub Actions, который закончится примерно через 2-3 минуты. Его можно наблюдать во вкладке *Actions* в репозитории. 
 После этого справа в рпозитории появится релиз содержащий диплом со шрифтом times new roman и презентация.
 
+***Для запуска GitHub actions и автоматического создания релиза необходимы дополниетльные разрешения для токена и репозитория, смотрите документацию на [этот проект](https://github.com/softprops/action-gh-release)***.
+
 ## Работа с библиографией
 
 Для автоматической компиляции библиографии используется специальный файл **.bib** (biblio/biblio.bib), в который необходимо добавлять свои источники в нужном формате.
 
 Рекомендую удалить все содержимое файла **biblio.bib** и добавлять по одному свои источники, так как при случайном добавлении дубликата bibtex будет выдавать ошибки.
 
+Добавлена утилита на python для очистки списка литературы от неиспользуемых источников. Она находится в папке **biblio**.
+
+Для ее запуска воспользуйтей следующей командой в терминале, отрытом в папке с библиографией:
+
+```bash
+python rm_extra_bib_items.py
+```
+
+Программа ищет цитирования во всех файлах `.tex` в папке **chapters**, и нужные источники из файла **bibliography.bib** сохраняет в новый файл с названием **bibliography.bib.new**.
+
+Программа не убирает дубликаты источников. Для избежания дубликатов для *ID* источника нужно использовать `DOI`. Как это делать написано далее.
+
 ### Алгоритм добавления нового литературного источника
+
+`DOI` - цифровой идентификатор объекта (digital object identifier). Используется для однозначного идентифицирования статьи. Кроме того, статья может находится на сайтах с разными именами, но ссылка `https://doi.org/{DOI}` будет всегда указывать на нее.
 
 1. Ищем DOI статьи, которую хотим добавить в список литературы. Удобно делать это через сайт [Google Scholar](https://scholar.google.com/). Зачастую это бывает часть URL ссылки на работу.
 2. Вставляем DOI на сайте [doi2bib](https://www.doi2bib.org/).

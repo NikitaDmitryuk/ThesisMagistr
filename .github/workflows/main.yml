@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-        image: docker.io/2109199812/docker-latex:latest
+      image: docker.io/2109199812/docker-latex:latest
     steps:
       - uses: actions/checkout@v3
 
@@ -17,12 +17,12 @@ jobs:
         shell: bash
         run: make release
 
-      - name: Rename release file
+      - name: Rename release files
         shell: bash
         run: |
-          for filename in $(find "$(pwd)" -maxdepth 1 -name '*.tex' -printf "%f\n" | sed -r "s/(.*).tex/\1/g"); do mv ${filename}.pdf ${filename}-${GITHUB_REF#refs/*/}.pdf; done
-      
-      - name: Release
+          find . -maxdepth 1 -name '*.tex' -exec bash -c 'mv "${0%.tex}.pdf" "${0%.tex}-${GITHUB_REF#refs/*/}.pdf"' {} \;
+
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
