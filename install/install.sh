@@ -37,7 +37,6 @@ main() {
     configure_docker
     pull_or_build_docker_image "$1"
 
-    echo "Перезагрузите компьютер для применения изменений."
 }
 
 main "$@"
