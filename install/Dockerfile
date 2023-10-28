@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer="NikitaDmitryuk dmitryuk.nikita@gmail.com"
 
 ENV DEBIAN_FRONTEND=noninteractive \
