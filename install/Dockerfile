@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 LABEL maintainer="NikitaDmitryuk dmitryuk.nikita@gmail.com"
+LABEL org.opencontainers.image.description="https://github.com/NikitaDmitryuk/ThesisMagistr"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true \
@@ -28,8 +28,8 @@ RUN apt update && \
 
 # Download additional fonts
 RUN wget -O /usr/share/fonts/xits-math.otf https://github.com/khaledhosny/xits-math/raw/master/XITSMath-Regular.otf && \
-    wget https://ftp.tw.freebsd.org/distfiles/xorg/font/PTSansOFL.zip && \
-    wget https://ftp.tw.freebsd.org/distfiles/xorg/font/PTMonoOFL.zip && \
+    wget https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTSansOFL.zip && \
+    wget https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTMonoOFL.zip && \
     unzip -o PTSansOFL.zip -d /usr/share/fonts/ && \
     unzip -o PTMonoOFL.zip -d /usr/share/fonts/ && \
     rm -f PTSansOFL.zip PTMonoOFL.zip && \
