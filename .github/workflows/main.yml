@@ -5,13 +5,23 @@ on:
     tags:
       - 'v*'
 
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/latex
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: read
     container:
-      image: docker.io/2109199812/docker-latex:latest
+      image: ghcr.io/${{ github.repository }}/latex:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Compile Thesis
         shell: bash

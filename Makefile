@@ -9,7 +9,7 @@ LOG_FILES = *.log
 
 DOCKER_RUN = docker run
 DOCKER_FLAGS = --rm -i -v "${PWD}":/diplom:Z
-DOCKER_IMAGE = 2109199812/docker-latex
+DOCKER_IMAGE = ghcr.io/nikitadmitryuk/thesismagistr/latex:latest
 DOCKER_COMMAND = make release
 
 FILES_TO_BUILD := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
