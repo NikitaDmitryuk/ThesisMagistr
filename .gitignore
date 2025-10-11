@@ -275,8 +275,20 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
-# vc code
 .vscode/
-
-# pdf output
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+env/
+*.egg-info/
+biblio/*.new
 /*.pdf
+.tmp/
+temp/
