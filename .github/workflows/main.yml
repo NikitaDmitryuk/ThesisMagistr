@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/latex
+  IMAGE_NAME: nikitadmitryuk/thesismagistr/latex
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       contents: write
       packages: read
     container:
-      image: ghcr.io/${{ github.repository }}/latex:latest
+      image: ghcr.io/nikitadmitryuk/thesismagistr/latex:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
