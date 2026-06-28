@@ -1,7 +1,10 @@
+\pdfminorversion=7
+\pdfsuppresswarningpagegroup=1
 \documentclass{beamer} % Использование класса beamer для создания презентации
 \usetheme{Boadilla} % Применение темы Boadilla
 
 \usepackage[T2A]{fontenc} % Установка кодировки шрифта
+\DeclareFontShape{T2A}{cmss}{b}{n}{<->ssub*cmss/bx/n}{}
 \usepackage[utf8]{inputenc} % Установка кодировки исходного текста
 \usepackage[english,russian]{babel} % Подключение локализации и переносов для русского и английского языков
 \usepackage{amsmath,amssymb} % Подключение математических символов и формул
@@ -14,6 +17,7 @@
 
 \usepackage[labelformat=empty]{caption} % Подключение пакета для настройки подписей и удаление названия "Рисунок"
 \graphicspath{{./images/}{./images/logo/}} % Указание папок, где искать изображения
+\hypersetup{hidelinks}
 
 \setbeamertemplate{navigation symbols}{} % Удаление навигационных символов на слайдах
 \usepackage{ragged2e} % Подключение пакета для улучшенного выравнивания текста
@@ -227,7 +231,7 @@
         \vspace{0.5cm}
         \begin{figure}
           \centering
-          \href{run:video_flat_layer.mp4}{\includegraphics[width=\textwidth]{MACR-Figure0.png}}
+          \includegraphics[width=\textwidth]{MACR-Figure0.png}
 
         \end{figure}
 
@@ -255,7 +259,7 @@
             LJ16-6 & 0.31 & 8.0 & 0.8 & 1.6\\
           \end{tabular}
 
-          \label{MACR-Table1}
+          \label{pres:MACR-Table1}
         \end{table}
 
       \end{column}
@@ -279,7 +283,7 @@
       \centering
       \includegraphics[width=0.9\linewidth]{kepsilon.pdf}
       \caption{Принцип работы алгоритма кластеризации DBSCAN для случая $k = 3$.}
-      \label{kepsilon}
+      \label{pres:kepsilon}
     \end{figure}
   }
 
@@ -297,7 +301,7 @@
       \caption{(a) классификация частиц на конденсат и газ. \\
         (b) выделение частиц поверхности, по условию принадлежности к конденсату и не к основным частицам. \\
         (с) пример выделения регулярной поверхности, охватывающей все частицы кластера.}
-      \label{DBSCAN-Illustr}
+      \label{pres:DBSCAN-Illustr}
     \end{figure}
   }
 \end{frame}
@@ -313,7 +317,7 @@
       \caption{(a) кластер произвольной формы при температуре ниже тройной точки. \\
         (b) система в состоянии жидкость + газ. \\
         (с) система вблизи критической точки.}
-      \label{D3_free_conf}
+      \label{pres:D3_free_conf}
     \end{figure}
   }
 \end{frame}
@@ -364,8 +368,8 @@
 
 
 
-\begin{frame}{Вычисление диффузии и спектров в жидкости}
-  \footnotesize{
+\begin{frame}[shrink=20]{Вычисление диффузии и спектров в жидкости}
+  \scriptsize{
     \begin{columns}
       \begin{column}{0.5\linewidth}
         \begin{center}
@@ -398,17 +402,20 @@
       \end{column}
     \end{columns}
 
-    \vspace{0.5cm}
+    \vspace{0.2cm}
 
     Полный спектр потока скорости $C(q, \omega) = C_L(q, \omega) + (D-1)C_T(q, \omega)$:
     \begin{equation}
       \begin{aligned}
-        C(q, \omega) & \propto \frac{\Gamma_{L}}{\left(\omega-\omega_{L}\right)^{2}+\Gamma_{L}^{2}}+\frac{\Gamma_{L}}{\left(\omega+\omega_{L}\right)^{2}+\Gamma_{L}^{2}}+\frac{(D-1) \Gamma_{T}}{\left(\omega-\omega_{T}\right)^{2}+\Gamma_{T}^{2}}+\frac{(D-1) \Gamma_{T}}{\left(\omega+\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
+        C(q, \omega) & \propto \frac{\Gamma_{L}}{\left(\omega-\omega_{L}\right)^{2}+\Gamma_{L}^{2}}
+        +\frac{\Gamma_{L}}{\left(\omega+\omega_{L}\right)^{2}+\Gamma_{L}^{2}}\\
+        &\quad+\frac{(D-1)\Gamma_{T}}{\left(\omega-\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
+        +\frac{(D-1)\Gamma_{T}}{\left(\omega+\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
       \end{aligned}
       \label{eq5}
     \end{equation}
   }
-  \vspace{1.0cm}
+  \vspace{0.2cm}
   \tiny{N.P. Kryuchkov, et al., Scientific Reports 9, 10483 (2019). \\
     S.A. Khrapak, et al., The Journal of Chemical Physics 149, 134114 (2018).}
 
@@ -438,10 +445,10 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=0.95\textwidth]{MACR-Figure4}
+      \includegraphics[width=0.9\textwidth]{MACR-Figure4}
       \caption{\scriptsize{\textbf{(a) Температурная зависимость подвижности потенциала LJ12-6:} точки, в который были рассчитаны спектры указаны черными стрелками.\\
           \textbf{(b) - (f) Спектры потенциала LJ12-6:} Красным цветом показаны спектры, рассчитанные совместным анализом мод.}}
-      \label{Figure4}
+      \label{pres:MACR-Figure4}
     \end{figure}
   }
 
@@ -459,7 +466,7 @@
       \caption{\textbf{(a)} Сравнение различных методов построения фазовых диаграмм. Красным отмечен самый точный метод - термодинамическое интегрирование.\\
         \textbf{(b)} Тест на влияние средней плотности на фазовую диаграмму системы LJ12-6 в трехмерии.\\
         \textbf{(c)} Тест на влияние начального параметра $k$ на фазовую диаграмму системы LJ12-6 в трехмерии.}
-      \label{tests}
+      \label{pres:tests}
     \end{figure}
   }
 
@@ -473,15 +480,15 @@
 
     \begin{figure}[!t]
       \centering
-      \includegraphics[width=\linewidth]{otchet.pdf}
-      \label{otchet}
+      \includegraphics[height=0.33\textheight]{otchet.pdf}
+      \label{pres:otchet}
     \end{figure}
 
     Процесс зарождения и роста кластеров в переохлажденной системе частиц.
 
     \begin{figure}[!t]
       \centering
-      \includegraphics[width=\linewidth]{nucleation.pdf}
+      \includegraphics[height=0.30\textheight]{nucleation.pdf}
       \label{nucleation}
     \end{figure}
   }
@@ -588,9 +595,9 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{MACR-Figure5}
+      \includegraphics[width=0.95\textwidth]{MACR-Figure5}
       \caption{\footnotesize \textbf{Аналогичные графики для потенциала LJ12-4}}
-      \label{Figure4}
+      \label{pres:MACR-Figure5}
     \end{figure}
 
   }
@@ -606,9 +613,9 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{MACR-Figure6}
+      \includegraphics[width=0.95\textwidth]{MACR-Figure6}
       \caption{\footnotesize \textbf{Аналогичные графики для потенциала LJ12-5}}
-      \label{Figure4}
+      \label{pres:MACR-Figure6}
     \end{figure}
 
   }
@@ -624,9 +631,9 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{MACR-Figure7}
+      \includegraphics[width=0.95\textwidth]{MACR-Figure7}
       \caption{\footnotesize \textbf{Аналогичные графики для потенциала LJ16-6}}
-      \label{Figure4}
+      \label{pres:MACR-Figure7}
     \end{figure}
   }
 
@@ -641,9 +648,9 @@
 
     \begin{figure}
       \centering
-      \includegraphics[width=\textwidth]{NMP-Figure4}
+      \includegraphics[width=0.95\textwidth]{NMP-Figure4}
       \caption{\footnotesize \textbf{Зависимость тройных и критических точек от дальнодействия притяжения в системе}}
-      \label{Figure4}
+      \label{pres:NMP-Figure4}
     \end{figure}
   }
 

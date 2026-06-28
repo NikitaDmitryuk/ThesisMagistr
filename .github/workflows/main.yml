@@ -7,7 +7,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: nikitadmitryuk/thesismagistr/latex
+  IMAGE_NAME: ${{ github.repository }}/latex
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       contents: write
       packages: read
     container:
-      image: ghcr.io/nikitadmitryuk/thesismagistr/latex:latest
+      image: ghcr.io/${{ github.repository }}/latex:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
@@ -33,7 +33,7 @@ jobs:
           find . -maxdepth 1 -name '*.tex' -exec bash -c 'mv "${0%.tex}.pdf" "${0%.tex}-${GITHUB_REF#refs/*/}.pdf"' {} \;
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: |
             *-v*.pdf
