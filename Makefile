@@ -13,18 +13,24 @@ DOCKER_COMMAND = make release
 
 FILES_TO_BUILD := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
 
-.PHONY: all release clean clean_after_build clean_diploma clean_presentation
+.PHONY: all release check_logs smoke_pdf clean clean_after_build clean_diploma clean_presentation
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
 
-release: clean $(FILES_TO_BUILD) clean_after_build
+release: clean $(FILES_TO_BUILD) check_logs smoke_pdf clean_after_build
 
 diploma presentation:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_$@ && make $@.pdf && make clean_after_build"
 
 %.pdf: %.tex
 	$(LATEXMK) $(LATEXMK_FLAGS) $<
+
+check_logs:
+	sh scripts/check_latex_logs.sh
+
+smoke_pdf:
+	sh scripts/pdf_smoke_check.sh
 
 clean:
 	$(RM) $(FILES_TO_BUILD) $(LOG_FILES) $(TEMPORARY_FILES)

@@ -11,7 +11,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/latex
+  IMAGE_NAME: nikitadmitryuk/thesismagistr/latex
 
 jobs:
   build-and-push:
@@ -48,4 +48,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
