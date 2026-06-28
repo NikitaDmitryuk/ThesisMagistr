@@ -16,7 +16,7 @@ jobs:
       contents: write
       packages: read
     container:
-      image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+      image: ghcr.io/nikitadmitryuk/thesismagistr/latex:latest
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
