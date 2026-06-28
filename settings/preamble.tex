@@ -2,8 +2,7 @@
 \pdfsuppresswarningpagegroup=1
 \documentclass[
 candidate, % document type
-subf, % use and configure subfig package for nested figure numbering
-times % use Times font as main
+subf % use and configure subfig package for nested figure numbering
 ]{disser}
 
 % Кодировка и язык
@@ -36,7 +35,7 @@ times % use Times font as main
 \usepackage{epstopdf} % конвертация eps в pdf
 \usepackage{multirow} % объединение ячеек таблиц по вертикали
 \usepackage{afterpage} % вставка материала после текущей страницы
-\usepackage[font={normal}]{caption} % настройка подписей к рисункам и таблицам
+\usepackage[font={normal},compatibility=false]{caption} % настройка подписей к рисункам и таблицам
 \usepackage[onehalfspacing]{setspace} % полуторный интервал
 \usepackage{fancyhdr} % установка колонтитулов
 \usepackage{listings} % поддержка вставки исходного кода

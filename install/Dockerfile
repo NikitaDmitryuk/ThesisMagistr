@@ -22,28 +22,39 @@ RUN apt-get update && \
         texlive-full \
         biber \
         latexmk \
+        poppler-utils \
         fontconfig \
         ttf-mscorefonts-installer && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN cd /tmp && \
-    wget -q -O /usr/share/fonts/xits-math.otf https://github.com/khaledhosny/xits-math/raw/master/XITSMath-Regular.otf && \
-    wget -q https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTSansOFL.zip && \
-    wget -q https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTMonoOFL.zip && \
+    wget -q -O XITSMath-Regular.otf https://github.com/khaledhosny/xits-math/raw/master/XITSMath-Regular.otf && \
+    wget -q -O PTSansOFL.zip https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTSansOFL.zip && \
+    wget -q -O PTMonoOFL.zip https://ponce.cc/slackware/sources/repo/ttf-paratype-pt-fonts/PTMonoOFL.zip && \
+    printf '%s\n' \
+        '3025792adb0b7072ace08bf5726d341de32f2254612ddec6dd98271a8dd29689  XITSMath-Regular.otf' \
+        '57448741b709c5f022127134ffd49506e3925242bd06f73a039e070765d1d637  PTSansOFL.zip' \
+        'e34e729f9509cf85acc52caadf68e96db90457b7164ba45719967d53e7a20dcc  PTMonoOFL.zip' | sha256sum -c - && \
+    mv XITSMath-Regular.otf /usr/share/fonts/xits-math.otf && \
     unzip -q -o PTSansOFL.zip -d /usr/share/fonts/ && \
     unzip -q -o PTMonoOFL.zip -d /usr/share/fonts/ && \
     rm -f PTSansOFL.zip PTMonoOFL.zip && \
     fc-cache -f -v
 
 RUN cd /tmp && \
-    wget -q https://people.debian.org/~sgolovan/debian/pool/main/tex/tex-pscyr/tex-pscyr_0.4d~beta9-1_all.deb && \
+    wget -q -O tex-pscyr_0.4d~beta9-1_all.deb https://people.debian.org/~sgolovan/debian/pool/main/tex/tex-pscyr/tex-pscyr_0.4d~beta9-1_all.deb && \
+    printf '%s\n' \
+        '2936ef0c4a618a73ae72192f53bc98cd2096c231e2fa9db37c479822214b842d  tex-pscyr_0.4d~beta9-1_all.deb' | sha256sum -c - && \
     dpkg -i tex-pscyr_0.4d~beta9-1_all.deb && \
     rm -f tex-pscyr_0.4d~beta9-1_all.deb
 
 # TeX Live 2025 ships GOST .bst files with a trailing \endinput that BibTeX treats as a command.
 RUN mktexlsr && \
-    sed -i 's/^\\endinput$/%% \\endinput/' "$(kpsewhich gost2008.bst)" && \
+    GOST_STYLE="$(kpsewhich gost2008.bst)" && \
+    test -n "$GOST_STYLE" && \
+    sed -i 's/^\\endinput$/%% \\endinput/' "$GOST_STYLE" && \
+    ! grep -qx '\\endinput' "$GOST_STYLE" && \
     updmap-sys && \
     printf '%s\n' \
         '\documentclass{article}' \
