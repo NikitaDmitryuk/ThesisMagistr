@@ -9,16 +9,21 @@ DOCKER_RUN = docker run
 DOCKER_FLAGS = --rm -i -v "${PWD}":/diplom -w /diplom
 GHCR_IMAGE ?= nikitadmitryuk/thesismagistr/latex
 DOCKER_IMAGE = ghcr.io/$(GHCR_IMAGE):latest
-DOCKER_COMMAND = make release
+DOCKER_COMMAND = make build
 
 FILES_TO_BUILD := $(patsubst %.tex,%.pdf,$(wildcard *.tex))
 
-.PHONY: all release check_logs smoke_pdf clean clean_after_build clean_diploma clean_presentation
+.PHONY: all build release release_docker check_logs smoke_pdf clean clean_after_build clean_diploma clean_presentation
 
 all:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) $(DOCKER_COMMAND)
 
+build: clean $(FILES_TO_BUILD) clean_after_build
+
 release: clean $(FILES_TO_BUILD) check_logs smoke_pdf clean_after_build
+
+release_docker:
+	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) make release
 
 diploma presentation:
 	$(DOCKER_RUN) $(DOCKER_FLAGS) $(DOCKER_IMAGE) bash -c "make clean_$@ && make $@.pdf && make clean_after_build"
