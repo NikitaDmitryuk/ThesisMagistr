@@ -1,0 +1,24 @@
+# Project ChkTeX profile. Keep CI focused on high-signal LaTeX issues and
+# suppress warnings that are too noisy for Russian scientific prose.
+CmdLine
+{
+  -q
+  -v0
+  -n1
+  -n2
+  -n3
+  -n8
+  -n13
+  -n24
+  -n25
+  -n36
+  -n37
+  -n44
+}
+
+Silent
+{
+  \jj
+  \vec
+  \checkmark
+}

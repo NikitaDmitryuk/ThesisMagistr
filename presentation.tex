@@ -94,8 +94,8 @@
     \textbf{Практическая значимость:}
 
     \begin{itemize}
-    \item Численно рассчитана диффузия и спектры на жидкой ветви бинодали веществ
-    \item Разработан новый метод распознавания фаз, который универсален по отношению к размерности системы и формам кластеров, с сохранением точности расчета на уровне других методов
+      \item Численно рассчитана диффузия и спектры на жидкой ветви бинодали веществ
+      \item Разработан новый метод распознавания фаз, который универсален по отношению к размерности системы и формам кластеров, с сохранением точности расчета на уровне других методов
     \end{itemize}
   }
 \end{frame}
@@ -112,10 +112,10 @@
 
     \textbf{Задачами работы являются:}
     \begin{itemize}
-    \item Расчет фазовых диаграмм для 2D и 3D систем частиц, взаимодействующих посредством обобщенного потенциала Леннарда-Джонса с различными степенями притяжения.
-    \item Адаптация метода кластеризации данных DBSCAN для изучения молекулярных систем и его сравнение с другими методами.
-    \item Расчет и анализ транспортных свойств и коллективных возбуждений на жидких ветвях бинодали.
-    \item Применение нового метода распознавания фаз для изучения скорости нуклеации в переохлажденных системах Леннарда-Джонса с различным дальнодействием притяжения.
+      \item Расчет фазовых диаграмм для 2D и 3D систем частиц, взаимодействующих посредством обобщенного потенциала Леннарда-Джонса с различными степенями притяжения.
+      \item Адаптация метода кластеризации данных DBSCAN для изучения молекулярных систем и его сравнение с другими методами.
+      \item Расчет и анализ транспортных свойств и коллективных возбуждений на жидких ветвях бинодали.
+      \item Применение нового метода распознавания фаз для изучения скорости нуклеации в переохлажденных системах Леннарда-Джонса с различным дальнодействием притяжения.
     \end{itemize}
   }
 \end{frame}
@@ -127,8 +127,8 @@
   \footnotesize{
 
     \begin{enumerate}
-    \item Температурная зависимость диффузии имеет линейную зависимость в широком диапазоне температур на бинодали жидкость-газ, отклонение от которой коррелирует с изменением характера спектра возбуждений. Отношение температур критической к тройной точке убывает с уменьшением дальнодействия потенциала взаимодействия
-    \item Разработанный метод распознавания фаз на основе алгоритма кластеризации обладает универсальностью как к размерности системы так и к форме кластеров с сохранением точности на уровне других методов
+      \item Температурная зависимость диффузии имеет линейную зависимость в широком диапазоне температур на бинодали жидкость-газ, отклонение от которой коррелирует с изменением характера спектра возбуждений. Отношение температур критической к тройной точке убывает с уменьшением дальнодействия потенциала взаимодействия
+      \item Разработанный метод распознавания фаз на основе алгоритма кластеризации обладает универсальностью как к размерности системы так и к форме кластеров с сохранением точности на уровне других методов
     \end{enumerate}
   }
 \end{frame}
@@ -253,10 +253,10 @@
           \centering
           \begin{tabular}{c|c|c|c|c}
             LJ$n$-$m$ & $\rho$ & $r_c$ & $T_{\rm start}$ & $T_{\rm stop}$ \\ \hline
-            LJ12-4 & 0.25 & 15.0 & 1.0 & 5.5 \\
-            LJ12-5 & 0.25 & 10.0 & 0.8 & 2.4\\
-            LJ12-6 & 0.35 & 8.0 & 0.5 & 1.4\\
-            LJ16-6 & 0.31 & 8.0 & 0.8 & 1.6\\
+            LJ12-4    & 0.25   & 15.0  & 1.0             & 5.5            \\
+            LJ12-5    & 0.25   & 10.0  & 0.8             & 2.4            \\
+            LJ12-6    & 0.35   & 8.0   & 0.5             & 1.4            \\
+            LJ16-6    & 0.31   & 8.0   & 0.8             & 1.6            \\
           \end{tabular}
 
           \label{pres:MACR-Table1}
@@ -382,9 +382,9 @@
 
         Cреднеквадратичное смещение частиц:
         \begin{align}
-          \sigma^2(t) &= \sum\limits_{\alpha = 1}^{N} (r_{\alpha}(t) - r_{\alpha}(0))^2 / N \\
-          \sigma^2(t) &= 6\cdot D\cdot t
-                        \label{eqRMS}
+          \sigma^2(t) & = \sum\limits_{\alpha = 1}^{N} (r_{\alpha}(t) - r_{\alpha}(0))^2 / N \\
+          \sigma^2(t) & = 6\cdot D\cdot t
+          \label{eqRMS}
         \end{align}
 
         Подвижность частиц $\mu$ связана с диффузией:
@@ -395,8 +395,8 @@
 
         Спектр потока скорости:
         \begin{align}
-          C_{L, T}(\mathbf{q}, \omega)&=\int dt e^{i \omega t} \text{Re} \left\langle\mathbf{j}_{L, T}(\mathbf{q}, t) \mathbf{j}_{L, T}(-\mathbf{q}, 0)\right\rangle \\
-          \text{где} \quad \mathbf{j}(\mathbf{q}, t)&=N^{-1} \sum_{s} \mathbf{v}_{s}(t) \exp \left(i \mathbf{q} \mathbf{r}_{s}(t)\right)
+          C_{L, T}(\mathbf{q}, \omega)               & =\int dt e^{i \omega t} \text{Re} \left\langle\mathbf{j}_{L, T}(\mathbf{q}, t) \mathbf{j}_{L, T}(-\mathbf{q}, 0)\right\rangle \\
+          \text{где} \quad \mathbf{j}(\mathbf{q}, t) & =N^{-1} \sum_{s} \mathbf{v}_{s}(t) \exp \left(i \mathbf{q} \mathbf{r}_{s}(t)\right)
         \end{align}
 
       \end{column}
@@ -408,8 +408,8 @@
     \begin{equation}
       \begin{aligned}
         C(q, \omega) & \propto \frac{\Gamma_{L}}{\left(\omega-\omega_{L}\right)^{2}+\Gamma_{L}^{2}}
-        +\frac{\Gamma_{L}}{\left(\omega+\omega_{L}\right)^{2}+\Gamma_{L}^{2}}\\
-        &\quad+\frac{(D-1)\Gamma_{T}}{\left(\omega-\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
+        +\frac{\Gamma_{L}}{\left(\omega+\omega_{L}\right)^{2}+\Gamma_{L}^{2}}                          \\
+                     & \quad+\frac{(D-1)\Gamma_{T}}{\left(\omega-\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
         +\frac{(D-1)\Gamma_{T}}{\left(\omega+\omega_{T}\right)^{2}+\Gamma_{T}^{2}}
       \end{aligned}
       \label{eq5}
@@ -505,11 +505,11 @@
 
     \begin{itemize}
 
-    \item Установлено, что подвижность имеет линейную температурную зависимость в широком диапазоне на бинодали жидкость-газ.
+      \item Установлено, что подвижность имеет линейную температурную зависимость в широком диапазоне на бинодали жидкость-газ.
 
-    \item При увеличении дальнодействия потенциала увеличивается отношение температур критической к тройной точке. Кроме того, при этом уменьшается наклон температурной зависимости подвижности.
+      \item При увеличении дальнодействия потенциала увеличивается отношение температур критической к тройной точке. Кроме того, при этом уменьшается наклон температурной зависимости подвижности.
 
-    \item Отклонение подвижности от линейной зависимости при высоких температурах коррелирует с переходом спектров возбуждений от осциллирующего к монотонному виду.
+      \item Отклонение подвижности от линейной зависимости при высоких температурах коррелирует с переходом спектров возбуждений от осциллирующего к монотонному виду.
 
     \end{itemize}
 
@@ -517,7 +517,7 @@
 
     \begin{itemize}
 
-    \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN. Алгоритм показывает высокую точность распознавания фаз, и открывает новые области для изучения, например влияние дальнодействия потенциала на скорость нуклеации в переохлажденных системах.
+      \item Разработан новый метода классификации частиц в двухфазных системах на основе алгоритма кластеризации DBSCAN. Алгоритм показывает высокую точность распознавания фаз, и открывает новые области для изучения, например влияние дальнодействия потенциала на скорость нуклеации в переохлажденных системах.
 
     \end{itemize}
   }
@@ -532,17 +532,17 @@
     \textbf{Публикации:}
 
     \begin{itemize}
-    \item Kryuchkov, N. P., Dmitryuk, N. A., Li, W., Ovcharov, P. V., Han, Y., Sapelkin, A. V., and Yurchenko, S. O. (2021). Mean-field model of melting in superheated crystals based on a single experimentally measurable order parameter. Scientific reports, 11(1), 1-15.
-    \item Yakovlev, E. V., Kryuchkov, N. P., Korsakova, S. A., Dmitryuk, N. A., Ovcharov, P. V., Andronic, M. M., ... and Yurchenko, S. O. (2022). 2D colloids in rotating electric fields: A laboratory of strong tunable three-body interactions. Journal of Colloid and Interface Science, 608, 564-574.
-    \item Tsiok, E. N., Fomin, Y. D., Gaiduk, E. A., Tareyeva, E. E., Ryzhov, V. N., Libet, P. A., ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. The Journal of Chemical Physics, 156(11), 114703.
+      \item Kryuchkov, N. P., Dmitryuk, N. A., Li, W., Ovcharov, P. V., Han, Y., Sapelkin, A. V., and Yurchenko, S. O. (2021). Mean-field model of melting in superheated crystals based on a single experimentally measurable order parameter. Scientific reports, 11(1), 1-15.
+      \item Yakovlev, E. V., Kryuchkov, N. P., Korsakova, S. A., Dmitryuk, N. A., Ovcharov, P. V., Andronic, M. M., \ldots and Yurchenko, S. O. (2022). 2D colloids in rotating electric fields: A laboratory of strong tunable three-body interactions. Journal of Colloid and Interface Science, 608, 564-574.
+      \item Tsiok, E. N., Fomin, Y. D., Gaiduk, E. A., Tareyeva, E. E., Ryzhov, V. N., Libet, P. A., \ldots Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. The Journal of Chemical Physics, 156(11), 114703.
     \end{itemize}
 
     \textbf {Результаты работ представлены на следующих конференциях:}
 
     \begin{itemize}
-    \item XX Школа-конференция молодых ученых <<Проблемы физики твердого тела и высоких давлений>>, Сочи, 16-26 сентября 2021г.
-    \item Современные тенденции развития функциональных материалов, Сочи, 11-14 ноября 2021г.
-    \item Dynamic phenomena workshop 2022.
+      \item XX Школа-конференция молодых ученых <<Проблемы физики твердого тела и высоких давлений>>, Сочи, 16-26 сентября 2021г.
+      \item Современные тенденции развития функциональных материалов, Сочи, 11-14 ноября 2021г.
+      \item Dynamic phenomena workshop 2022.
     \end{itemize}
   }
 \end{frame}
@@ -654,7 +654,7 @@
     \end{figure}
   }
 
-  \tiny{Tsiok, E. N., Dmitryuk, N.A, ... Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. // \textit{The Journal of Chemical Physics}}
+  \tiny{Tsiok, E. N., Dmitryuk, N.A, \ldots Yurchenko, S. O. (2022). The role of attraction in the phase diagrams and melting scenarios of generalized 2D Lennard-Jones systems. // \textit{The Journal of Chemical Physics}}
 \end{frame}
 
 
