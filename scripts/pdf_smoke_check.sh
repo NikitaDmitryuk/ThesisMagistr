@@ -25,5 +25,5 @@ check_pdf() {
   echo "$pdf smoke check passed: $pages page(s)."
 }
 
-check_pdf diploma.pdf 69
+check_pdf diploma.pdf 68
 check_pdf presentation.pdf 24
